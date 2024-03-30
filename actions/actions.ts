@@ -4,7 +4,6 @@ import { prisma } from "@/lib/db"
 import { revalidatePath } from "next/cache"
 
 export const addBlog = async (formData: FormData) => {
-    throw new Error("something went wrong")
     try {
         await prisma.blog.create({
             data: {
