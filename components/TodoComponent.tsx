@@ -1,11 +1,9 @@
 "use client"
 
-import { addBlog } from "@/actions/actions";
+import { addBlog } from "@/actions/actions"
 import Card from "./Card"
+import { useFormState } from "react-dom"
 import SubmitBtn from "./SubmitBtn"
-import toast from "react-hot-toast"
-import { useOptimistic } from "react"
-
 
 type BlogType = {
     id: string;
@@ -13,34 +11,25 @@ type BlogType = {
     body: string;
 }
 
+const initialState = {
+    titleError: "",
+    bodyError: ""
+}
+
 const TodoComponent = ({ blogs }: { blogs: BlogType[] }) => {
-    const [optimisticBlogs, addOptimisticBlog] = useOptimistic(blogs, (state, newBlog: BlogType) => {
-        return [...state, newBlog]
-    })
+    const [state, formAction] = useFormState(addBlog, initialState)
     return (
         <>
-            <form action={
-                async (formData) => {
-                    addOptimisticBlog({
-                        id: Math.random().toString(),
-                        title: formData.get("title") as string,
-                        body: formData.get("body") as string
-                    })
-                    const result = await addBlog(formData)
-                    if (result?.error) {
-                        toast.error("Something went wrong")
-                    } else {
-                        toast.success("Blog added successfully")
-                    }
-                }
-            }>
+            <form action={formAction}>
                 <input name="title" type="text" placeholder="Title" />
                 <br />
+                {state?.titleError && <p>{state.titleError}</p>}
                 <input name="body" type="text" placeholder="Body" />
                 <br />
-                <SubmitBtn />
+                {state?.bodyError && <p>{state.bodyError}</p>}
+                <SubmitBtn/>
             </form>
-            {optimisticBlogs.map(e => <Card key={e.id} {...e} />)}
+            {blogs.map(e => <Card key={e.id} {...e} />)}
         </>
     )
 }
