@@ -1,21 +1,14 @@
 import TodoComponent from "@/components/TodoComponent"
 import { prisma } from "@/lib/db"
+import Link from "next/link"
 
-const getData = async() => {
-  try{
-    const blogs = await prisma.blog.findMany()
-    return blogs
-  }catch(e){
-    throw new Error("something went wrong")
-  }
-
-}
 const Home = async () => {
-  const data = await getData()
+  const blogs = await prisma.blog.findMany()
   return (
     <>
       <h2>Blog App</h2>
-      <TodoComponent blogs={data} />
+      <Link href="/about">About</Link>
+      <TodoComponent blogs={blogs} />
     </>
   )
 }
