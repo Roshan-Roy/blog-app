@@ -8,7 +8,7 @@ import { useOptimistic } from "react"
 
 
 type BlogType = {
-    id: number;
+    id: string;
     title: string;
     body: string;
 }
@@ -22,7 +22,7 @@ const TodoComponent = ({ blogs }: { blogs: BlogType[] }) => {
             <form action={
                 async (formData) => {
                     addOptimisticBlog({
-                        id: Math.random(),
+                        id: Math.random().toString(),
                         title: formData.get("title") as string,
                         body: formData.get("body") as string
                     })
