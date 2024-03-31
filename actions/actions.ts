@@ -2,21 +2,7 @@
 
 import { prisma } from "@/lib/db"
 import { revalidatePath } from "next/cache"
-import { z } from "zod"
-
-
-const blogSchema = z.object({
-    title: z.string().trim().min(3, {
-        message: "Minimum length for title is 3"
-    }).max(10, {
-        message: "maximum length for title is 10"
-    }),
-    body: z.string().trim().min(3, {
-        message: "minimum length for body is 3"
-    }).max(100, {
-        message: "maximum length for body is 100"
-    })
-})
+import { blogSchema } from "@/lib/validate"
 
 export const addBlog = async (prevState: any, formData: FormData) => {
     const result = blogSchema.safeParse({
@@ -39,8 +25,4 @@ export const addBlog = async (prevState: any, formData: FormData) => {
             }
         }
     }
-    await prisma.blog.create({
-        data: { ...result.data }
-    })
-    revalidatePath("/")
 }

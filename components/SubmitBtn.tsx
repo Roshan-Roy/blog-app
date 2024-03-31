@@ -5,7 +5,7 @@ import { useFormStatus } from "react-dom"
 const SubmitBtn = () => {
     const { pending } = useFormStatus()
     return (
-        <button type="submit">{pending ? "Submitting" : "Submit"}</button>
+        <button type="submit" disabled={pending}>{pending ? "Submitting" : "Submit"}</button>
     )
 }
 
