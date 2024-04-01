@@ -1,0 +1,10 @@
+.container{
+    background-color: darkslategray;
+    display: flex;
+    padding: 30px;
+    gap: 15px;
+}
+.container a{
+    color: white;
+    text-decoration: none;
+}
