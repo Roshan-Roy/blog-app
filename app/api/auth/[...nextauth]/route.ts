@@ -1,25 +1,35 @@
 import NextAuth from "next-auth/next"
 import CredentialsProvider from "next-auth/providers/credentials"
+import { prisma } from "@/lib/db"
+import { compare } from "bcrypt"
 
-const handler = NextAuth({
+export const authOptions = {
     providers: [
         CredentialsProvider({
             name: "Credentials",
             credentials: {
-                username: { label: "Username", type: "text", placeholder: "jsmith" },
-                password: { label: "Password", type: "password" }
+                email: {},
+                password: {}
             },
             async authorize(credentials) {
-                console.log("credentials")
-                const user = { id: "1", name: "J Smith", email: "jsmith@example.com" }
-                if (user) {
-                    return user
-                } else {
-                    return null
+                const user = await prisma.user.findUnique({
+                    where: {
+                        email: credentials?.email
+                    }
+                })
+                if (!user || !user.emailVerified) {
+                    throw new Error("Incorrect credentials provided")
                 }
+                const passwordMatching = await compare(credentials?.password || "", user.password)
+                if (!passwordMatching) {
+                    throw new Error("Incorrect credentials provided")
+                }
+                return user
             }
         })
     ]
-})
+}
 
+
+const handler = NextAuth(authOptions)
 export { handler as GET, handler as POST }

@@ -1,7 +1,7 @@
 "use client"
 
 import styles from "./form.module.css"
-import { signupAction } from "@/actions/authActions"
+import { signupAction } from "@/actions/signUpAction"
 import { useFormState } from "react-dom"
 import SignupBtn from "./SignupBtn"
 
@@ -10,7 +10,7 @@ const initialState = {
     emailError: "",
     passwordError: "",
     cPasswordError: "",
-    emailMessage: false
+    emailMessage: ""
 }
 
 const SignupForm = () => {
@@ -26,7 +26,7 @@ const SignupForm = () => {
             <input type="password" placeholder="Confirm Password" name="cpassword" />
             {<p>{state.cPasswordError}</p>}
             <SignupBtn/>
-            {<p>{state.emailMessage && "An Email has been sent"}</p>}
+            {<p>{state.emailMessage}</p>}
         </form>
     )
 }

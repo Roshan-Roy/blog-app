@@ -1,5 +1,5 @@
 const Home = async () => {
-  return <h1>Hi</h1>
+  return <h1>Home</h1>
 }
 
 export default Home
