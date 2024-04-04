@@ -3,7 +3,10 @@ import CredentialsProvider from "next-auth/providers/credentials"
 import { prisma } from "@/lib/db"
 import { compare } from "bcrypt"
 
-export const authOptions = {
+const handler = NextAuth({
+    session: {
+        strategy: "jwt"
+    },
     providers: [
         CredentialsProvider({
             name: "Credentials",
@@ -28,8 +31,6 @@ export const authOptions = {
             }
         })
     ]
-}
+})
 
-
-const handler = NextAuth(authOptions)
 export { handler as GET, handler as POST }

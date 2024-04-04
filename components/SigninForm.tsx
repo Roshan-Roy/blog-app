@@ -22,6 +22,7 @@ const SigninForm = () => {
         passwordError: "",
         credentialsError: ""
     })
+    const [pending, uptPending] = useState(false)
     const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         uptErrors({
@@ -46,16 +47,19 @@ const SigninForm = () => {
                 credentialsError: ""
             })
         } else {
+            uptPending(true)
             const response = await signIn("credentials", {
                 ...validation.data,
                 redirect: false
             })
-            if (response?.error) uptErrors({
-                emailError: "",
-                passwordError: "",
-                credentialsError: response.error
-            })
-            else {
+            if (response?.error) {
+                uptErrors({
+                    emailError: "",
+                    passwordError: "",
+                    credentialsError: response.error
+                })
+                uptPending(false)
+            } else {
                 router.push("/dashboard")
                 router.refresh()
             }
@@ -68,7 +72,7 @@ const SigninForm = () => {
             <input type="password" placeholder="Password" name="password" ref={password} />
             <p>{errors.passwordError}</p>
             <p>{errors.credentialsError}</p>
-            <button type="submit">Submit</button>
+            <button type="submit" disabled={pending}>{pending ? "Submitting" : "Submit"}</button>
             <br /><br />
             <Link href="/auth/forgot-password">Forgot Password?</Link>
         </form>
