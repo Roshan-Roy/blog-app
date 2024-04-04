@@ -10,7 +10,7 @@ const VerifyEmailPage = async ({ searchParams }: searchParamsType) => {
     if (!token) {
         return <h2>No Token Provided</h2>
     }
-    const user = await prisma.user.findUnique({
+    const user = await prisma.user.findFirst({
         where: {
             emailVerificationToken: token as string
         }
@@ -20,7 +20,7 @@ const VerifyEmailPage = async ({ searchParams }: searchParamsType) => {
     }
     await prisma.user.update({
         where: {
-            emailVerificationToken: token as string
+            id: user.id
         },
         data: {
             emailVerified: true,

@@ -3,7 +3,7 @@ import { useFormStatus } from "react-dom"
 const ChangePasswordBtn = () => {
     const { pending } = useFormStatus()
     return (
-        <button>{pending ? "Submitting" : "submit"}</button>
+        <button disabled={pending}>{pending ? "Submitting" : "submit"}</button>
     )
 }
 

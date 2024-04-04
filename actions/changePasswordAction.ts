@@ -1,32 +1,38 @@
 "use server"
 
-import { z } from "zod"
 import { prisma } from "@/lib/db"
+import crypto from "crypto"
+import { Resend } from "resend"
+import { ChangePasswordTemplate } from "@/components/ChangePasswordTemplate"
 
-const changePasswordSchema = z.object({
-    email: z.string().min(1, "Email is required").email()
-})
+const resend = new Resend(process.env.RESEND_API_KEY)
 
-export const changePasswordAction = async (prevState: any, formData: FormData) => {
-    const errors = {
-        emailError: "",
-        emailMessage: ""
-    }
-    const validation = changePasswordSchema.safeParse({
-        email: formData.get("email")
-    })
-    if (!validation.success) {
-        const { message } = validation.error.issues[0]
-        return { ...errors, emailError: message }
-    }
+export const changePasswordAction = async (email: string) => {
     const user = await prisma.user.findUnique({
-        where: { ...validation.data }
+        where: {
+            email
+        }
     })
     if (!user || !user.emailVerified) {
-        return {
-            emailError: "User not found",
-            emailMessage: ""
-        }
+        return false
     }
-    return { ...errors, emailMessage: "An Email is sent" }
+    const changePasswordToken = crypto.randomBytes(32).toString("base64url")
+    await prisma.user.update({
+        where: {
+            email
+        },
+        data: {
+            changePasswordToken
+        }
+    })
+    await resend.emails.send({
+        from: 'Acme <onboarding@resend.dev>',
+        to: email,
+        subject: 'Change your Password',
+        react: ChangePasswordTemplate({
+            email,
+            changePasswordToken
+        }) as React.ReactElement
+    })
+    return true
 }
