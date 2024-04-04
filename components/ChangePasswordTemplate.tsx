@@ -12,7 +12,7 @@ export const ChangePasswordTemplate: React.FC<Readonly<changePasswordProps>> = (
     <div>
         <h1>Change Password for {email}</h1>
         <p>To change your password click on this link :</p>
-        <a href={`http://localhost:3000/auth/forgot-password?token=${changePasswordToken}`}>
+        <a href={`${process.env.NEXTAUTH_URL}/auth/forgot-password?token=${changePasswordToken}`}>
             Click here to change your password
         </a>
     </div>
