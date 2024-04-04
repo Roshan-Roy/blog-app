@@ -11,9 +11,10 @@ export const VerifyEmailTemplate: React.FC<Readonly<VerifyEmailTemplateProps>> =
 }) => (
     <div>
         <h1>Verify Email for {email}</h1>
-        <p>To verify email click on this link :</p>
+        <h3>
         <a href={`${process.env.NEXTAUTH_URL}/auth/verify-email?token=${emailVerificationToken}`}>
             Click here to verify your Email
         </a>
+        </h3>
     </div>
 );
