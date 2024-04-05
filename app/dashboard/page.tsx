@@ -1,13 +1,12 @@
 import { getServerSession } from "next-auth"
-import SignoutBtn from "@/components/SignoutBtn"
+import { redirect } from "next/navigation"
 
 const Dashboard = async () => {
   const session = await getServerSession()
+  if (!session) redirect("/signin")
   return (
-    <>
-      <p>{JSON.stringify(session)}</p>
+    <>     
       <div>Dashboard</div>
-      <SignoutBtn/>
     </>
   )
 }
