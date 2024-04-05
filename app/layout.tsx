@@ -1,8 +1,9 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-import { Toaster } from "react-hot-toast";
-import Navbar from "@/components/Navbar";
+import type { Metadata } from "next"
+import { Inter } from "next/font/google"
+import "./globals.css"
+import { Toaster } from "react-hot-toast"
+import Navbar from "@/components/Navbar"
+import Provider from "./context/AuthContext"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,11 +19,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <Toaster />
-        <Navbar/>
-        {children}
-      </body>
+      <Provider>
+        <body className={inter.className}>
+          <Toaster />
+          <Navbar />
+          {children}
+        </body>
+      </Provider>
     </html>
   );
 }

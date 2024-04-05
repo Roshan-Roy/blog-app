@@ -4,7 +4,7 @@ import { redirect } from "next/navigation"
 
 const ProfilePage = async () => {
     const session = await getServerSession()
-    if (!session) redirect("/signin")
+    if (!session) redirect("/")
     return (
         <>
             <p>{JSON.stringify(session)}</p>
