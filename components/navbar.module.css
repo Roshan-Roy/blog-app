@@ -1,10 +1,12 @@
 .container{
-    background-color: darkslategray;
+    background-color:white;
     display: flex;
     padding: 30px;
     gap: 15px;
+    border-bottom: 1px solid rgb(193, 193, 193);
+    justify-content: center;
 }
 .container a{
-    color: white;
+    color: grey;
     text-decoration: none;
 }
