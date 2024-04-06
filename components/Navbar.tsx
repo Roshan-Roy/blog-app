@@ -1,6 +1,5 @@
 "use client"
 
-import Link from "next/link"
 import styles from "./navbar.module.css"
 import { useSession } from "next-auth/react"
 import Links from "./Links"
