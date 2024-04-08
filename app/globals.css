@@ -17,6 +17,9 @@ body{
 button,a{
     cursor: pointer;
 }
+a{
+    text-decoration: none;
+}
 ::backdrop{
     background-color: #333;
     opacity: 0.8;

@@ -1,4 +1,7 @@
-a.active{
+.link{
+  color: grey;
+}
+.link.active{
     background-color: grey;
     color: white;
 }
