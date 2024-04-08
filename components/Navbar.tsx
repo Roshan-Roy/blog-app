@@ -1,13 +1,12 @@
-"use client"
-
 import styles from "./navbar.module.css"
-import { useSession } from "next-auth/react"
-import Links from "./Links"
+import Links from "./links/Links"
+import { getServerSession } from "next-auth"
+import { authOptions } from "@/lib/auth"
 
-const Navbar = () => {
-    const { status } = useSession()
+const Navbar = async() => {
+    const session = await getServerSession(authOptions)
     let linksArray = []
-    if (status === "authenticated") {
+    if (session) {
         linksArray = [
             {
                 name: "Home",
