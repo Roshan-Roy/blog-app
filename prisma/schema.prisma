@@ -8,11 +8,14 @@ datasource db {
 }
 
 model User {
-  id                     String  @id @default(auto()) @map("_id") @db.ObjectId
+  id                     String   @id @default(auto()) @map("_id") @db.ObjectId
   name                   String
-  email                  String  @unique
+  email                  String   @unique
   password               String
-  emailVerified          Boolean @default(false)
+  image                  String?
+  links                  String[]
+  about                  String   @default("Hey there!")
+  emailVerified          Boolean  @default(false)
   emailVerificationToken String?
   changePasswordToken    String?
 }
