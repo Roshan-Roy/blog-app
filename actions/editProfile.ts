@@ -5,17 +5,25 @@ import { revalidatePath } from "next/cache"
 
 type editProfileSchema = {
     name: string | undefined,
-    about: string | undefined
+    bio: string | undefined,
+    instagram: string | undefined,
+    facebook: string | undefined,
+    linkedIn: string | undefined,
+    whatsapp: string | undefined
 }
 
-export const editProfile = async ({ name, about }: editProfileSchema, userId: string) => {
+export const editProfile = async ({ name, bio, instagram, facebook, linkedIn, whatsapp }: editProfileSchema, userId: string) => {
     await prisma.user.update({
         where: {
             id: userId
         },
         data: {
             name,
-            about
+            bio,
+            instagram,
+            facebook,
+            linkedIn,
+            whatsapp
         }
     })
     revalidatePath("/profile")

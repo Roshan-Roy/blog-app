@@ -12,12 +12,12 @@ model User {
   name                   String
   email                  String  @unique
   password               String
-  image                  String?
-  instagram              String?
-  facebook               String?
-  linkedIn               String?
-  whatsapp               String?
-  about                  String  @default("Hey there!")
+  image                  String  @default("no_image.jpg")
+  bio                    String  @default("Hey there!")
+  instagram              String  @default("")
+  facebook               String  @default("")
+  linkedIn               String  @default("")
+  whatsapp               String  @default("")
   emailVerified          Boolean @default(false)
   emailVerificationToken String?
   changePasswordToken    String?
