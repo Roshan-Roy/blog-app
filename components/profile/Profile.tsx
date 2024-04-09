@@ -23,7 +23,7 @@ const Profile = async ({ userId }: { userId: string }) => {
             <CountBoard name="Blogs" count={11} />
             <CountBoard name="Likes" count={15} />
           </div>
-          <EditProfile name={user?.name} about={user?.about} userId={userId}/>
+          <EditProfile {...user}/>
         </div>
       </div>
     </div>

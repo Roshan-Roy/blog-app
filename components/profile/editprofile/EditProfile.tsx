@@ -14,15 +14,23 @@ const profileSchema = z.object({
     about: z.string().trim().min(1).max(100)
 })
 
-const EditProfile = ({ name, about, userId }: {
+const EditProfile = ({ name, about }: {
+    id:string | undefined,
     name: string | undefined,
     about: string | undefined,
-    userId: string
+    instagram: string | undefined,
+    facebook: string | undefined,
+    linkedIn: string | undefined,
+    whatsapp: string | undefined
 }) => {
     const { update } = useSession()
     const [data, uptData] = useState({
-        name,
-        about
+        name: "",
+        about: "",
+        instagram: "",
+        facebook: "",
+        linkedIn: "",
+        whatsapp: ""
     })
     const [disabled, uptDisabled] = useState(false)
     const [loading, uptLoading] = useState(false)
@@ -69,19 +77,19 @@ const EditProfile = ({ name, about, userId }: {
                         <h3 className={styles.social_heading}>Links</h3>
                         <div className={styles.social_inp_container}>
                             <h4><label htmlFor="instagram">Instagram</label></h4>
-                            <input type="text" name="instagram" id="instagram" placeholder="https://" />
+                            <input type="text" name="instagram" id="instagram" placeholder="https://" onChange={e => uptData({ ...data, instagram: e.target.value })} />
                         </div>
                         <div className={styles.social_inp_container}>
                             <h4><label htmlFor="facebook">Facebook</label></h4>
-                            <input type="text" name="facebook" id="facebook" placeholder="https://" />
+                            <input type="text" name="facebook" id="facebook" placeholder="https://" onChange={e => uptData({ ...data, facebook: e.target.value })} />
                         </div>
                         <div className={styles.social_inp_container}>
                             <h4><label htmlFor="linkedin">LinkedIn</label></h4>
-                            <input type="text" name="linkedin" id="linkedin" placeholder="https://" />
+                            <input type="text" name="linkedin" id="linkedin" placeholder="https://" onChange={e => uptData({ ...data, linkedIn: e.target.value })} />
                         </div>
                         <div className={styles.social_inp_container}>
                             <h4><label htmlFor="linkedin">Whatsapp</label></h4>
-                            <input type="text" name="whatsapp" id="whatsapp" placeholder="Phone number" />
+                            <input type="text" name="whatsapp" id="whatsapp" placeholder="Phone number" onChange={e => uptData({ ...data, whatsapp: e.target.value })} />
                         </div>
                     </div>
                     <div className={styles.change_container}>
