@@ -1,26 +1,32 @@
-:root{
+:root {
     --mc: #1877f2;
-    --t:#333;
+    --t: #333;
     --lt: #777;
 }
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     outline: none;
 }
-body{
+
+body {
     background-color: #eee;
-    color:var(--t);
+    color: var(--t);
     user-select: none;
 }
-button,a{
+
+button,
+a {
     cursor: pointer;
 }
-a{
+
+a {
     text-decoration: none;
 }
-::backdrop{
+
+::backdrop {
     background-color: #333;
     opacity: 0.8;
 }

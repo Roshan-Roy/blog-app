@@ -6,7 +6,7 @@ const Dashboard = async () => {
   const session = await getServerSession()
   if (!session) redirect("/signin")
   return (
-    <>     
+    <>
       <div>Dashboard</div>
       {JSON.stringify(session)}
     </>
