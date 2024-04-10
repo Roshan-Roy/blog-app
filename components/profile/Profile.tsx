@@ -18,7 +18,7 @@ const Profile = async ({ userId }: { userId: string }) => {
     <div className={styles.wrapper}>
       <div className={styles.container}>
         <div className={styles.profile_pic}>
-          <Image src={"/profile/no_image.webp"} alt="profile picture" fill={true}/>
+          <Image src={`/profile/${user?.image}`} alt="profile picture" fill={true} />
         </div>
         <div className={styles.details_one}>
           <h2 className={styles.username}>{user?.name}</h2>
@@ -43,6 +43,7 @@ const Profile = async ({ userId }: { userId: string }) => {
             facebook={user?.facebook}
             linkedIn={user?.linkedIn}
             whatsapp={user?.whatsapp}
+            image={user?.image}
             userId={userId}
           />
         </div>

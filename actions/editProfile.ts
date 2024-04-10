@@ -9,10 +9,11 @@ type editProfileSchema = {
     instagram: string | undefined,
     facebook: string | undefined,
     linkedIn: string | undefined,
-    whatsapp: string | undefined
+    whatsapp: string | undefined,
+    image: string | undefined
 }
 
-export const editProfile = async ({ name, bio, instagram, facebook, linkedIn, whatsapp }: editProfileSchema, userId: string) => {
+export const editProfile = async ({ name, bio, instagram, facebook, linkedIn, whatsapp, image }: editProfileSchema, userId: string) => {
     await prisma.user.update({
         where: {
             id: userId
@@ -23,7 +24,8 @@ export const editProfile = async ({ name, bio, instagram, facebook, linkedIn, wh
             instagram,
             facebook,
             linkedIn,
-            whatsapp
+            whatsapp,
+            image
         }
     })
     revalidatePath("/profile")

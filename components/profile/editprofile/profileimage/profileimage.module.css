@@ -1,0 +1,12 @@
+.container {
+    border-radius: 100vh;
+    aspect-ratio: 1;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: var(--t);
+}
+.current{
+    border-radius: 10px;
+    border: 5px solid var(--t);
+}

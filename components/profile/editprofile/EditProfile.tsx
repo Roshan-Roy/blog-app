@@ -8,19 +8,22 @@ import { z } from "zod"
 import { useEffect } from "react"
 import { editProfile } from "@/actions/editProfile"
 import { useSession } from "next-auth/react"
+import profileList from "./profilelist/profileList"
+import ProfileImage from "./profileimage/ProfileImage"
 
 const profileSchema = z.object({
     name: z.string().trim().min(1).max(20),
     bio: z.string().trim().min(1).max(60)
 })
 
-const EditProfile = ({ name, bio, instagram, facebook, linkedIn, whatsapp, userId }: {
+const EditProfile = ({ name, bio, instagram, facebook, linkedIn, whatsapp, image, userId }: {
     name: string | undefined,
     bio: string | undefined,
     instagram: string | undefined,
     facebook: string | undefined,
     linkedIn: string | undefined,
     whatsapp: string | undefined,
+    image: string | undefined
     userId: string
 }) => {
     const { update } = useSession()
@@ -30,7 +33,8 @@ const EditProfile = ({ name, bio, instagram, facebook, linkedIn, whatsapp, userI
         instagram,
         facebook,
         linkedIn,
-        whatsapp
+        whatsapp,
+        image
     })
     const [disabled, uptDisabled] = useState(false)
     const [loading, uptLoading] = useState(false)
@@ -45,7 +49,8 @@ const EditProfile = ({ name, bio, instagram, facebook, linkedIn, whatsapp, userI
             instagram,
             facebook,
             linkedIn,
-            whatsapp
+            whatsapp,
+            image
         })
     }
     const handleCloseBtnClick = () => {
@@ -58,6 +63,9 @@ const EditProfile = ({ name, bio, instagram, facebook, linkedIn, whatsapp, userI
         update({ name: data.name })
         uptLoading(false)
         handleCloseBtnClick()
+    }
+    const handleChangeImage = (e: string) => {
+        uptData({ ...data, image: e })
     }
     useEffect(() => {
         const validation = profileSchema.safeParse(data)
@@ -73,6 +81,14 @@ const EditProfile = ({ name, bio, instagram, facebook, linkedIn, whatsapp, userI
                 </div>
                 <form onSubmit={handleFormSubmit}>
                     <div className={styles.editprofile}>
+                        <div className={styles.inp_container}>
+                            <h3 className={styles.avatar_heading}>Avatar</h3>
+                            <div className={styles.image_container}>
+                                {
+                                    profileList.map(e => <ProfileImage src={e} current={data.image} change={handleChangeImage}/>)
+                                }
+                            </div>
+                        </div>
                         <div className={styles.inp_container}>
                             <h3><label htmlFor="name">Name</label></h3>
                             <input type="text" value={data.name} name="name" id="name" placeholder="Name" onChange={e => uptData({ ...data, name: e.target.value })} />
