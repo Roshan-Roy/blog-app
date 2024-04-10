@@ -13,7 +13,6 @@ const Profile = async ({ userId }: { userId: string }) => {
       id: userId
     }
   })
-  console.log(user)
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
