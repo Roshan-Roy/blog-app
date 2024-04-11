@@ -2,6 +2,7 @@
     --mc: #1877f2;
     --t: #333;
     --lt: #777;
+    --bs: rgba(99, 99, 99, 0.2) 0 0 8px 0px;
 }
 
 * {
@@ -12,7 +13,7 @@
 }
 
 body {
-    background-color: #eee;
+    background-color: #f0f0f0;
     color: var(--t);
     user-select: none;
 }
@@ -24,7 +25,7 @@ a {
 
 a {
     text-decoration: none;
-    color:var(--t);
+    color: var(--t);
 }
 
 ::backdrop {

@@ -11,26 +11,26 @@ const Navbar = () => {
         linksArray = [
             {
                 name: "Home",
-                route: "/"
+                route: ["/"]
             }, {
                 name: "Dashboard",
-                route: "/dashboard"
+                route: ["/dashboard"]
             }, {
                 name: "Profile",
-                route: "/profile"
+                route: ["/profile/blogs","/profile/saved"]
             }
         ]
     } else {
         linksArray = [
             {
                 name: "Home",
-                route: "/"
+                route: ["/"]
             }, {
                 name: "Signin",
-                route: "/signin"
+                route: ["/signin"]
             }, {
                 name: "Signup",
-                route: "/signup"
+                route: ["/signup"]
             }
         ]
     }

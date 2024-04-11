@@ -28,5 +28,5 @@ export const editProfile = async ({ name, bio, instagram, facebook, linkedIn, wh
             image
         }
     })
-    revalidatePath("/profile")
+    revalidatePath("/")
 }
