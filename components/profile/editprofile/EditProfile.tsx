@@ -85,7 +85,7 @@ const EditProfile = ({ name, bio, instagram, facebook, linkedIn, whatsapp, image
                             <h3 className={styles.avatar_heading}>Avatar</h3>
                             <div className={styles.image_container}>
                                 {
-                                    profileList.map(e => <ProfileImage src={e} current={data.image} change={handleChangeImage}/>)
+                                    profileList.map(e => <ProfileImage key={e} src={e} current={data.image} change={handleChangeImage} />)
                                 }
                             </div>
                         </div>
