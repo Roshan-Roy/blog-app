@@ -28,3 +28,8 @@ model Blog {
   title String
   body  String
 }
+
+model Image {
+  id  String  @id @default(auto()) @map("_id") @db.ObjectId
+  src String?
+}

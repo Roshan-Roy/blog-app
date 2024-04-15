@@ -18,6 +18,9 @@ const Navbar = () => {
             }, {
                 name: "Profile",
                 route: ["/profile/blogs","/profile/saved"]
+            },{
+                name:"Images",
+                route:["/images"]
             }
         ]
     } else {
