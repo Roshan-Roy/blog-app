@@ -1,8 +1,7 @@
 import ImageCard from "@/components/ImageCard"
-import { prisma } from "@/lib/db"
 
 const getData = async () => {
-  const res = await fetch("http://localhost:3000/api//all", {
+  const res = await fetch(`${process.env.NEXTAUTH_URL}/api//all`, {
     cache: "no-store"
   })
   return res.json()
