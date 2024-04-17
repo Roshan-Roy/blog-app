@@ -26,7 +26,7 @@ const Navbar = () => {
     } else {
         linksArray = [
             {
-                name: "Home",
+                name: "Hoe",
                 route: ["/"]
             }, {
                 name: "Signin",
