@@ -4,10 +4,11 @@ import RevalBtn from "@/components/btn/RevalBtn"
 
 const Images = async () => {
   const imageList = await prisma.image.findMany()
+  console.log(imageList)
   return (
     <div>
       {imageList.map((e, i) => <ImageCard key={i} url={e.src} />)}
-      <RevalBtn/>
+      <RevalBtn />
     </div>
   )
 }
