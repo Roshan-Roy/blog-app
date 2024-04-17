@@ -1,17 +1,22 @@
 import ImageCard from "@/components/ImageCard"
 import { prisma } from "@/lib/db"
 import RevalBtn from "@/components/btn/RevalBtn"
-import Image from "next/image"
+
+const getData = async () => {
+  const res = await fetch(`${process.env.NEXTAUTH_URL}/api/all`,{
+    cache:"no-store"
+  })
+  return res.json()
+}
 
 const Images = async () => {
-  const image: any = await prisma.image.findUnique({
-    where: {
-      id: "661fae16abc2c9b2c16e1d54"
-    }
-  })
+  const imageList = await getData()
   return (
     <div>
-      <Image src={image?.src} width={200} height={200} alt="image" />
+      {imageList.data.map((e: {
+        id: string;
+        src: string;
+      }, i: number) => <ImageCard key={i} url={e.src} />)}
       <RevalBtn />
     </div>
   )
