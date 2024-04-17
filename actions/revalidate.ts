@@ -3,5 +3,5 @@
 import { revalidatePath } from "next/cache"
 
 export const reval = () => {
-    revalidatePath("/")
+    revalidatePath("/images")
 }
