@@ -1,19 +1,13 @@
 import ImageCard from "@/components/ImageCard"
-
-const getData = async () => {
-  const res = await fetch(`${process.env.NEXTAUTH_URL}/api/all`, {
-    cache: "no-store"
-  })
-  return res.json()
-}
+import { prisma } from "@/lib/db"
+import RevalBtn from "@/components/btn/RevalBtn"
 
 const Images = async () => {
-  const imageList = await getData()
+  const imageList = await prisma.image.findMany()
   return (
     <div>
-      {imageList.data.map((e: {
-        src: string
-      }, i: number) => <ImageCard key={i} url={e.src} />)}
+      {imageList.map((e, i) => <ImageCard key={i} url={e.src} />)}
+      <RevalBtn/>
     </div>
   )
 }
