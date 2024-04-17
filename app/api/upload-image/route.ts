@@ -1,7 +1,7 @@
 import { uploadImage } from "@/lib/upload-image"
 import { NextRequest, NextResponse } from "next/server"
 import { prisma } from "@/lib/db"
-import { revalidatePath } from "next/cache"
+
 
 export const POST = async (req: NextRequest) => {
     const formData = await req.formData()
@@ -13,7 +13,6 @@ export const POST = async (req: NextRequest) => {
                 src: response.secure_url
             }
         })
-        revalidatePath("/images")
         return NextResponse.json({
             message: "Image uploaded"
         }, {
