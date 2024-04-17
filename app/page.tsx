@@ -1,8 +1,10 @@
 "use client"
 
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 
 const Home = () => {
+  const router = useRouter()
   const [image, setImage] = useState<File | null>(null)
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files)
@@ -25,8 +27,8 @@ const Home = () => {
 
     const result = await response.json()
 
-    alert(result.message)
-
+    router.push("/images")
+    router.refresh()
   }
   return (
     <>
