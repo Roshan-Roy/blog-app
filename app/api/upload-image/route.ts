@@ -13,7 +13,7 @@ export const POST = async (req: NextRequest) => {
                 src: response.secure_url
             }
         })
-        revalidatePath("/")
+        revalidatePath("/images")
         return NextResponse.json({
             message: "Image uploaded"
         }, {
