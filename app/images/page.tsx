@@ -1,25 +1,12 @@
-import ImageCard from "@/components/ImageCard"
-import { prisma } from "@/lib/db"
-import RevalBtn from "@/components/btn/RevalBtn"
+import Images from "@/components/images/Images"
 
-const getData = async () => {
-  const res = await fetch(`${process.env.NEXTAUTH_URL}/api/all`,{
-    cache:"no-store"
-  })
-  return res.json()
-}
-
-const Images = async () => {
-  const imageList = await getData()
+const ImagesPage = () => {
   return (
-    <div>
-      {imageList.data.map((e: {
-        id: string;
-        src: string;
-      }, i: number) => <ImageCard key={i} url={e.src} />)}
-      <RevalBtn />
-    </div>
+    <>
+      <h2>Images</h2>
+      <Images />
+    </>
   )
 }
 
-export default Images
+export default ImagesPage
