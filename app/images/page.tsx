@@ -1,7 +1,7 @@
 import ImageCard from "@/components/ImageCard"
 
 const getData = async () => {
-  const res = await fetch(`${process.env.NEXTAUTH_URL}/api//all`, {
+  const res = await fetch(`${process.env.NEXTAUTH_URL}/api/all`, {
     cache: "no-store"
   })
   return res.json()
