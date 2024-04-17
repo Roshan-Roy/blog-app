@@ -30,6 +30,7 @@ model Blog {
 }
 
 model Image {
-  id  String  @id @default(auto()) @map("_id") @db.ObjectId
-  src String?
+  id     String  @id @default(auto()) @map("_id") @db.ObjectId
+  userId String
+  src    String?
 }

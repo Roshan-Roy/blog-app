@@ -2,8 +2,11 @@
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
+import { useSession } from "next-auth/react"
 
 const Home = () => {
+  const { data: session } = useSession()
+  console.log(session?.user.id)
   const router = useRouter()
   const [image, setImage] = useState<File | null>(null)
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -19,6 +22,7 @@ const Home = () => {
     }
     const formData = new FormData()
     formData.append("image", image)
+    formData.append("userid",session?.user.id as string)
 
     const response = await fetch("/api/upload-image", {
       method: "POST",
