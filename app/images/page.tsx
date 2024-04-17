@@ -2,9 +2,14 @@ import ImageCard from "@/components/ImageCard"
 import { prisma } from "@/lib/db"
 import RevalBtn from "@/components/btn/RevalBtn"
 
-const Images = async () => {
+export async function getServerSideProps() {
   const imageList = await prisma.image.findMany()
-  console.log(imageList)
+  return { props: { imageList } }
+}
+
+const Images = ({ imageList }: {
+  imageList: any
+}) => {
   return (
     <div>
       {imageList.map((e, i) => <ImageCard key={i} url={e.src} />)}
