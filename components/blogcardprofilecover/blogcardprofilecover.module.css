@@ -9,7 +9,7 @@
     flex-direction: column;
     height: 410px;
     justify-content: space-between;
-    transition: .1s linear;
+    transition: .2s linear;
 }
 
 .container:hover {
