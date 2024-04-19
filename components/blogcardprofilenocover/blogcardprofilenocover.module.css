@@ -9,7 +9,7 @@
     flex-direction: column;
     justify-content: space-between;
     height: 410px;
-    transition: .2s linear;
+    transition: .1s linear;
 }
 
 .container:hover {
@@ -70,7 +70,7 @@
     gap: 12px;
     background-color: var(--lt);
     font-weight: bold;
-    transition: .2s linear;
+    transition: .1s linear;
 }
 
 .readmore_btn button {
