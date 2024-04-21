@@ -16,8 +16,12 @@ const AddBlog = ({ children }: {
     return (
         <>
             <dialog ref={modal}>
-                Hello
                 <button onClick={handleCloseModal}>Close</button>
+                <form>
+                    <textarea placeholder="Title"></textarea>
+                    <textarea placeholder="Content"></textarea>
+                    <button type="submit">Add Blog</button>
+                </form>
             </dialog>
             <span onClick={handleShowModal}>
                 {children}

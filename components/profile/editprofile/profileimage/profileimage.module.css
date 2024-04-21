@@ -1,12 +1,20 @@
-.container {
-    border-radius: 100vh;
+.wrapper {
     aspect-ratio: 1;
-    position: relative;
-    overflow: hidden;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100vh;
+}
+
+.wrapper.current {
     background-color: var(--t);
 }
-.current{
-    border-radius: 10px;
-    border: 5px solid var(--t);
+
+.container {
+    position: relative;
+    height: 85%;
+    width: 85%;
+    border-radius: 100vh;
+    overflow: hidden;
 }
