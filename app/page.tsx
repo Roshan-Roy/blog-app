@@ -37,7 +37,7 @@ const Home = () => {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <input type="file" onChange={handleChange} />
+        <input type="file" accept="image/*" onChange={handleChange} />
         <br />
         <button>Upload</button>
       </form>

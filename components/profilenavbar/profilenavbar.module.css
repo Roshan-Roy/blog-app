@@ -10,7 +10,8 @@
     padding: 10px;
     gap: 10px;
 }
-.container a{
+
+.container a {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,15 +20,8 @@
     border-radius: 100vh;
     font-size: 15px;
 }
-.container button{
-    border-radius: 100vh;
-    border:none;
-    width: 55px;
-    background-color: var(--mc);
-    color: white;
-    font-size: 40px;
-}
-.container a.active{
-    background-color: #999;
+
+.container a.active {
+    background-color: var(--lt);
     color: white;
 }

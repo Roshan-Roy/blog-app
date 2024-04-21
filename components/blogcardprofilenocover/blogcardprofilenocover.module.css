@@ -44,7 +44,7 @@
 
 .description {
     font-size: 15px;
-    color: #444;
+    color: var(--lt);
     line-height: 1.5;
     height: 180px;
     word-wrap: break-word;
