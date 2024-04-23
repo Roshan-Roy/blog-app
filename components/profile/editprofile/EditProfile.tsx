@@ -10,6 +10,7 @@ import { editProfile } from "@/actions/editProfile"
 import { useSession } from "next-auth/react"
 import profileList from "./profilelist/profileList"
 import ProfileImage from "./profileimage/ProfileImage"
+import Spinner from "./spinner/Spinner"
 
 const profileSchema = z.object({
     name: z.string().trim().min(1).max(20),
@@ -117,7 +118,7 @@ const EditProfile = ({ name, bio, instagram, facebook, linkedIn, whatsapp, image
                     </div>
                     <div className={styles.change_container}>
                         <button disabled={disabled || loading} className={disabled || loading ? styles.disabled : undefined}>Make changes</button>
-                        {loading && "Loading"}
+                        {loading && <Spinner />}
                     </div>
                 </form>
             </dialog>
