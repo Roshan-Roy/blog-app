@@ -8,7 +8,7 @@ const BlogCardProfileNoCover = () => {
         <div className={styles.container}>
             <div className={styles.header}>
                 <p className={styles.date}>02 May 2024</p>
-                <p className={styles.category}>Technology</p>
+                <p className={styles.category}>Personal devlopment</p>
             </div>
             <h2>This is the title</h2>
             <p className={styles.description}>This is the content inside the specified blog with title above the overflow thing is almost done now yeah !!!

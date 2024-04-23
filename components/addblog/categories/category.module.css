@@ -1,0 +1,15 @@
+.container{
+    border: .5px solid #555;
+    border-radius: 15px;
+    text-align: center;
+    padding: 17px 0;
+    font-size: 13px;
+    font-weight: 600;
+    color: #555;
+    cursor: pointer;
+}
+
+.current{
+    color: white;
+    background-color: #555;
+}
