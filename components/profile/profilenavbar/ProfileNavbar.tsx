@@ -13,7 +13,7 @@ const ProfileNavbar = () => {
         <div className={styles.container}>
             <Link className={pathName === "/profile/blogs" ? styles.active : undefined} href="/profile/blogs">Blogs</Link>
             <AddBlog>
-                <AddBlogBtnProfile/> G
+                <AddBlogBtnProfile/>
             </AddBlog>
             <Link className={pathName === "/profile/saved" ? styles.active : undefined} href="/profile/saved">Saved</Link>
         </div>
