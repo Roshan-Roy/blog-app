@@ -1,0 +1,85 @@
+.container {
+    background-color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: var(--bs);
+    padding: 20px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    height: 410px;
+    justify-content: space-between;
+    transition: .1s linear;
+}
+
+.container h2,
+.container .image,
+.container p:not(.category),
+.container button {
+    background: linear-gradient(120deg,
+            #e5e5e5 30%,
+            #f0f0f0 38%,
+            #f0f0f0 40%,
+            #e5e5e5 48%);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    animation: load 2s infinite;
+}
+
+@keyframes load {
+    100% {
+        background-position: -100% 0;
+    }
+}
+
+.container h2 {
+    height: 30px;
+    width: 160px;
+}
+
+.image {
+    position: relative;
+    flex-basis: 160px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.category {
+    position: absolute;
+    border-radius: 10px;
+    width: 85px;
+    height: 30px;
+    right: 12px;
+    top: 12px;
+    background-color: white;
+}
+
+.date {
+    height: 20px;
+    width: 30%;
+}
+
+.description {
+    height: 45px;
+}
+
+.footer {
+    display: flex;
+    padding: 10px 0;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer button {
+    height: 30px;
+    width: 100px;
+    border-radius: 8px;
+    border: none;
+}
+
+.footer p {
+    font-size: 12px;
+    margin-right: 10px;
+    width: 130px;
+    height: 15px;
+}

@@ -58,7 +58,6 @@
 .footer {
     display: flex;
     padding: 10px 0;
-    display: flex;
     justify-content: space-between;
     align-items: center;
 }
@@ -68,7 +67,7 @@
     padding: 12px 12px 12px 15px;
     border-radius: 8px;
     gap: 12px;
-    background-color: var(--lt);
+    background-color: #555;
     font-weight: bold;
     transition: .1s linear;
 }

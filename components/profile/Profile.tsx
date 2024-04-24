@@ -6,7 +6,7 @@ import EditProfile from './editprofile/EditProfile'
 import { FaInstagram, FaFacebook, FaLinkedin, FaWhatsapp } from "react-icons/fa"
 import Link from 'next/link'
 import Image from 'next/image'
-import ProfileNavbar from '../profilenavbar/ProfileNavbar'
+import ProfileNavbar from './profilenavbar/ProfileNavbar'
 
 const Profile = async ({ userId }: { userId: string }) => {
   const user = await prisma.user.findUnique({

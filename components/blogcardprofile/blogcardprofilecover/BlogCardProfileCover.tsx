@@ -3,7 +3,19 @@ import styles from "./blogcardprofilecover.module.css"
 import Image from 'next/image'
 import { FaArrowRight } from "react-icons/fa6"
 
-const BlogCardProfileCover = () => {
+type BlogType = {
+    title: string;
+    content: string;
+    category: string;
+    createdAt: Date;
+}
+
+const BlogCardProfileCover = ({
+    title,
+    content,
+    category,
+    createdAt
+}: BlogType) => {
     return (
         <div className={styles.container}>
             <div className={styles.image}>
@@ -16,11 +28,9 @@ const BlogCardProfileCover = () => {
             <div className={styles.footer}>
                 <div className={styles.readmore_btn}>
                     <button>Read More</button>
-                    <FaArrowRight/>
+                    <FaArrowRight />
                 </div>
-                <div className={styles.landc}>
-                   <p>23 Likes, 35 Comments</p>
-                </div>
+                <p className={styles.landc}>23 Likes, 35 Comments</p>
             </div>
         </div>
     )

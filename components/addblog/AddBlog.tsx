@@ -4,10 +4,12 @@ import { IoMdClose } from "react-icons/io"
 import { addBlogAction } from "@/actions/addBlogAction"
 import categories from "./categories/categories"
 import Category from "./categories/Category"
+import { useSession } from "next-auth/react"
 
 const AddBlog = ({ children }: {
     children: React.ReactNode
 }) => {
+    const { data: session } = useSession()
     const [data, uptData] = useState({
         title: "",
         content: "",
@@ -26,7 +28,8 @@ const AddBlog = ({ children }: {
         addBlogAction({
             title: data.title.trim(),
             content: data.content.trim(),
-            category: data.category
+            category: data.category,
+            userId: session?.user.id
         })
     }
     const handleChangeCategory = (name: string) => {
