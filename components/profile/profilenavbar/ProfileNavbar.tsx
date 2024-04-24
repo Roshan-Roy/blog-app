@@ -4,7 +4,7 @@ import styles from "./profilenavbar.module.css"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import AddBlog from "../../addblog/AddBlog"
-import AddBlogBtnProfile from "../../addblogbtnprofile/AddBlogBtnProfile"
+import AddBlogBtnProfile from "@/components/addblogbtnprofile/AddBlogBtnProfile"
 
 const ProfileNavbar = () => {
     const pathName = usePathname()
