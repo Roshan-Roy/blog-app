@@ -16,9 +16,9 @@ const BlogsPage = async () => {
   return (
     <div className={styles.container}>
       {
-        blogs.map(e => {
-          if (e.image) return <BlogCardProfileCover {...e} />
-          return <BlogCardProfileNoCover {...e} />
+        blogs.map((e, i) => {
+          if (e.image) return <BlogCardProfileCover key={`${i}${e.title}`} {...e} />
+          return <BlogCardProfileNoCover key={`${i}${e.title}`} {...e} />
         })
       }
     </div>
