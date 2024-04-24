@@ -1,6 +1,7 @@
 "use server"
 
 import { prisma } from "@/lib/db"
+import { revalidatePath } from "next/cache";
 
 export const addBlogAction = async ({ title, content, category, userId }: {
     title: string;
@@ -8,7 +9,6 @@ export const addBlogAction = async ({ title, content, category, userId }: {
     category: string;
     userId: string | undefined;
 }) => {
-    console.log("loading")
     await prisma.blog.create({
         data: {
             title,
@@ -17,5 +17,5 @@ export const addBlogAction = async ({ title, content, category, userId }: {
             userId
         }
     })
-    console.log("Blog created")
+    revalidatePath("/")
 }
