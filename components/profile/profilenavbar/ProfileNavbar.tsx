@@ -3,7 +3,7 @@
 import styles from "./profilenavbar.module.css"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import AddBlog from "../../addblog/AddBlog"
+import AddBlog from "@/components/addblog/AddBlog"
 import AddBlogBtnProfile from "@/components/addblogbtnprofile/AddBlogBtnProfile"
 
 const ProfileNavbar = () => {
