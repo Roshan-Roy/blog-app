@@ -1,9 +1,8 @@
 "use client"
 
 import styles from "./editprofile.module.css"
-import { useRef } from "react"
+import { useRef, useState } from "react"
 import { IoMdClose } from "react-icons/io"
-import { useState } from "react"
 import { z } from "zod"
 import { useEffect } from "react"
 import { editProfile } from "@/actions/editProfile"
