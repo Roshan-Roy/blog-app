@@ -6,6 +6,7 @@ import { prisma } from "@/lib/db"
 export const POST = async (req: NextRequest) => {
     const formData = await req.formData()
     const image = formData.get("image") as unknown as File
+    console.log(image)
     const userId = formData.get("userid") as string
     try {
         const response: any = await uploadImage(image, "blogging-app")

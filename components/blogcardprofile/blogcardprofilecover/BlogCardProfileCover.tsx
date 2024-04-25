@@ -2,6 +2,7 @@ import React from 'react'
 import styles from "./blogcardprofilecover.module.css"
 import Image from 'next/image'
 import { FaArrowRight } from "react-icons/fa6"
+import formatDate from '@/lib/fomatDate'
 
 type BlogType = {
     title: string;
@@ -20,11 +21,11 @@ const BlogCardProfileCover = ({
         <div className={styles.container}>
             <div className={styles.image}>
                 <Image src="/profile/fam.jpg" alt="cover-image" objectFit="cover" fill unoptimized />
-                <p className={styles.category}>Family</p>
+                <p className={styles.category}>{category}</p>
             </div>
-            <p className={styles.date}>02 May 2024</p>
-            <h2>This is the title</h2>
-            <p className={styles.description}>This is the content inside the specified blog with title above the overflow thing is almost done now yeah !!!</p>
+            <p className={styles.date}>{formatDate(createdAt)}</p>
+            <h2>{title}</h2>
+            <p className={styles.description}>{content}</p>
             <div className={styles.footer}>
                 <div className={styles.readmore_btn}>
                     <button>Read More</button>

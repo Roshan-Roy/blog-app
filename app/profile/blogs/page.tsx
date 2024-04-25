@@ -12,7 +12,6 @@ const BlogsPage = async () => {
       userId: session?.user.id
     }
   })
-  console.log(blogs)
   return (
     <div className={styles.container}>
       {

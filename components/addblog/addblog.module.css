@@ -3,21 +3,80 @@
     overflow-y: scroll;
     position: relative;
     padding: 30px;
-}
-
-.addblog h3 {
     text-align: center;
 }
 
-.addblog input,.addblog textarea {
+.addblog input[type="text"],
+.addblog textarea {
     padding: 20px;
     border: .5px solid #ccc;
     border-radius: 15px;
-    font-size: 18px;
+    font-size: 20px;
     width: 100%;
     margin: 25px 0 40px 0;
 }
-.addblog textarea{
+
+.image {
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+    margin: 0 auto 40px auto;
+    gap: 20px;
+}
+
+.image label {
+    cursor: pointer;
+    height: 50px;
+    border-radius: 10px;
+    background-color: transparent;
+    color: var(--mc);
+    font-weight: 500;
+    border: 1px solid var(--mc);
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+.image label:hover {
+    background-color: var(--mc);
+    color: white;
+}
+
+.image label.added {
+    background-color: var(--mc);
+    color: white;
+}
+
+.image p {
+    font-size: 15px;
+    line-height: 1.7;
+    word-wrap: break-word;
+}
+
+.deletebtn_container {
+    display: flex;
+    gap: 10px;
+}
+.deletebtn_container button{
+   flex-basis: 50px;
+   border-radius: 10px;
+   background-color: red;
+   border: none;
+   font-size: 27px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: var(--lt);
+   color: white;
+}
+
+.addblog input[type="file"] {
+    display: none;
+}
+
+.addblog textarea {
     height: 300px;
     line-height: 1.5;
     resize: vertical;
@@ -88,9 +147,9 @@
     background-color: var(--mc);
 }
 
-.categories{
+.categories {
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 12px;
     margin-top: 35px;
 }

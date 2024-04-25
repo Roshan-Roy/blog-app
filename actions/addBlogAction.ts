@@ -8,7 +8,8 @@ export const addBlogAction = async ({ title, content, category, userId }: {
     content: string;
     category: string;
     userId: string | undefined;
-}) => {
+}, formData: FormData) => {
+    console.log(formData.get("image"))
     await prisma.blog.create({
         data: {
             title,

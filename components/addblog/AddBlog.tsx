@@ -5,6 +5,8 @@ import { addBlogAction } from "@/actions/addBlogAction"
 import categories from "./categories/categories"
 import Category from "./categories/Category"
 import { useSession } from "next-auth/react"
+import Spinner from "./spinner/Spinner"
+import { MdDeleteOutline } from "react-icons/md";
 
 const AddBlog = ({ children }: {
     children: React.ReactNode
@@ -15,25 +17,39 @@ const AddBlog = ({ children }: {
         content: "",
         category: "Books"
     })
+    const [image, uptImage] = useState<File | null>(null)
     const [disabled, uptDisabled] = useState(false)
+    const [loading, uptLoading] = useState(false)
     const modal = useRef<HTMLDialogElement>(null)
     const handleShowBtnClick = () => {
         modal.current?.showModal()
     }
     const handleCloseBtnClick = () => {
         modal.current?.close()
+        uptData({
+            title: "",
+            content: "",
+            category: "Books"
+        })
+        uptImage(null)
     }
     const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        addBlogAction({
+        uptLoading(true)
+        const formData = new FormData()
+        console.log(image)
+        if (image) formData.append("image", image)
+        await addBlogAction({
             title: data.title.trim(),
             content: data.content.trim(),
             category: data.category,
-            userId: session?.user.id
-        })
+            userId: session?.user.id,
+        }, formData)
+        uptLoading(false)
+        handleCloseBtnClick()
     }
     const handleChangeCategory = (name: string) => {
-        uptData({ ...data, category: name })
+        uptData(e => ({ ...e, category: name }))
     }
     useEffect(() => {
         if (!data.title.trim() || !data.content.trim())
@@ -52,6 +68,16 @@ const AddBlog = ({ children }: {
                     <div className={styles.addblog}>
                         <h3><label htmlFor="title">Title</label></h3>
                         <input type="text" id="title" placeholder="Title" value={data.title} onChange={elm => uptData(e => ({ ...e, title: elm.target.value }))} />
+                        <div className={styles.image}>
+                            {image && <p>{image.name}</p>}
+                            <div className={styles.deletebtn_container}>
+                                <label htmlFor="image" className={image ? styles.added : undefined}>{image ? "Image Added" : "Add Featured Image"}</label>
+                                {image && <button onClick={() => uptImage(null)}><MdDeleteOutline /></button>}
+                            </div>
+                            <input type="file" accept="image/*" id="image" onChange={elm => {
+                                if (elm.target.files) uptImage(elm.target.files[0])
+                            }} />
+                        </div>
                         <h3><label htmlFor="content">Content</label></h3>
                         <textarea id="content" placeholder="Content" value={data.content} onChange={elm => uptData(e => ({ ...e, content: elm.target.value }))}></textarea>
                         <h3>Category</h3>
@@ -60,7 +86,8 @@ const AddBlog = ({ children }: {
                         </div>
                     </div>
                     <div className={styles.change_container}>
-                        <button className={disabled ? styles.disabled : undefined} disabled={disabled}>Add Blog</button>
+                        <button className={disabled || loading ? styles.disabled : undefined} disabled={disabled || loading}>Add Blog</button>
+                        {loading && <Spinner />}
                     </div>
                 </form>
             </dialog>
