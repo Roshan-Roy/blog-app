@@ -1,17 +1,18 @@
 import { useRef, useState, useEffect } from "react"
 import styles from "./addblog.module.css"
 import { IoMdClose } from "react-icons/io"
-import { addBlogAction } from "@/actions/addBlogAction"
 import categories from "./categories/categories"
 import Category from "./categories/Category"
 import { useSession } from "next-auth/react"
 import Spinner from "./spinner/Spinner"
-import { MdDeleteOutline } from "react-icons/md";
+import { MdDeleteOutline } from "react-icons/md"
+import { useRouter } from "next/navigation"
 
 const AddBlog = ({ children }: {
     children: React.ReactNode
 }) => {
     const { data: session } = useSession()
+    const router = useRouter()
     const [data, uptData] = useState({
         title: "",
         content: "",
@@ -35,17 +36,24 @@ const AddBlog = ({ children }: {
     }
     const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        uptLoading(true)
         const formData = new FormData()
-        console.log(image)
+        formData.append("title", data.title.trim())
+        formData.append("content", data.content.trim())
+        formData.append("category", data.category)
         if (image) formData.append("image", image)
-        await addBlogAction({
-            title: data.title.trim(),
-            content: data.content.trim(),
-            category: data.category,
-            userId: session?.user.id,
-        }, formData)
-        uptLoading(false)
+        if (session?.user.id) formData.append("userId", session.user.id);
+        uptLoading(true)
+        const response = await fetch("/api/addblog", {
+            method: "POST",
+            body: formData
+        })
+        if (response.ok) {
+            console.log("Blog added")
+            router.refresh()
+            uptLoading(false)
+        } else {
+            console.log("An error occurred")
+        }
         handleCloseBtnClick()
     }
     const handleChangeCategory = (name: string) => {
