@@ -9,7 +9,7 @@ type BlogType = {
     content: string;
     category: string;
     createdAt: Date;
-    image: string
+    image: string | null
 }
 
 const BlogCardProfileCover = ({
@@ -22,7 +22,7 @@ const BlogCardProfileCover = ({
     return (
         <div className={styles.container}>
             <div className={styles.image}>
-                <Image src={image} alt="featured-image" objectFit="cover" fill unoptimized />
+                <Image src={image as string} alt="featured-image" objectFit="cover" fill unoptimized />
                 <p className={styles.category}>{category}</p>
             </div>
             <p className={styles.date}>{formatDate(createdAt)}</p>
