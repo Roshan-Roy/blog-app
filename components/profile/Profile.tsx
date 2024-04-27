@@ -19,7 +19,7 @@ const Profile = async ({ userId }: { userId: string }) => {
       <div className={styles.wrapper}>
         <div className={styles.container}>
           <div className={styles.profile_pic}>
-            <Image src={`/profile/${user?.image}`} alt="profile picture" fill={true} unoptimized/>
+            <Image src={`/profile/${user?.image}`} alt="profile picture" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" unoptimized fill/>
           </div>
           <div className={styles.details_one}>
             <h2 className={styles.username}>{user?.name}</h2>

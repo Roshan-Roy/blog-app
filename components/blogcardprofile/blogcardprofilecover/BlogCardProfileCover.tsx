@@ -22,7 +22,7 @@ const BlogCardProfileCover = ({
     return (
         <div className={styles.container}>
             <div className={styles.image}>
-                <Image src={image as string} alt="featured-image" fill />
+                <Image src={image as string} alt="featured-image" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" fill/>
                 <p className={styles.category}>{category}</p>
             </div>
             <p className={styles.date}>{formatDate(createdAt)}</p>

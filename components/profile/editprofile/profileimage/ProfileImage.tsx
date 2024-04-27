@@ -12,7 +12,7 @@ const ProfileImage = ({ src, current, change }: {
     return (
         <div className={src == current ? `${styles.wrapper} ${styles.current}` : styles.wrapper} onClick={handleImageClick}>
             <div className={styles.container}>
-                <Image src={`/profile/${src}`} alt="Unable to load" fill={true}/>
+                <Image src={`/profile/${src}`} alt="Unable to load" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" fill/>
             </div>
         </div>
     )
