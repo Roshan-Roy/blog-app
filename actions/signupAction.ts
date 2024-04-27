@@ -21,7 +21,6 @@ const sendEmail = async (email: string, emailVerificationToken: string) => {
 }
 
 export const signupAction = async (name: string, email: string, password: string) => {
-    console.log(name, email, password)
     const hashedPassword = await hash(password, 10)
     const emailVerificationToken = crypto.randomBytes(32).toString("base64url")
     const existingUser = await prisma.user.findUnique({

@@ -31,7 +31,6 @@ const ResetPasswordForm = ({ userId }: { userId: string }) => {
         })
         if (!validation.success) {
             const { message, path } = validation.error.issues[0]
-            console.log(message)
             if (path[0] === "password") uptErrors({
                 passwordError: message,
                 cPasswordError: ""
