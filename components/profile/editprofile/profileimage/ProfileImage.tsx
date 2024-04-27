@@ -12,7 +12,7 @@ const ProfileImage = ({ src, current, change }: {
     return (
         <div className={src == current ? `${styles.wrapper} ${styles.current}` : styles.wrapper} onClick={handleImageClick}>
             <div className={styles.container}>
-                <Image src={`/profile/${src}`} alt="Unable to load" fill={true} unoptimized />
+                <Image src={`/profile/${src}`} alt="Unable to load" fill={true}/>
             </div>
         </div>
     )
