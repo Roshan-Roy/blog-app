@@ -2,6 +2,8 @@ import React from 'react'
 import styles from "./blogcardprofilenocover.module.css"
 import { FaArrowRight } from "react-icons/fa6"
 import formatDate from '@/lib/fomatDate'
+import { AiOutlineDelete } from "react-icons/ai";
+import { FiEdit } from 'react-icons/fi'
 
 type BlogType = {
     title: string;
@@ -19,8 +21,19 @@ const BlogCardProfileNoCover = ({
     return (
         <div className={styles.container}>
             <div className={styles.header}>
-                <p className={styles.date}>{formatDate(createdAt)}</p>
+                <div className={styles.dlt_edit}>
+                    <span>
+                        <AiOutlineDelete />
+                    </span>
+                    <span>
+                        <FiEdit />
+                    </span>
+                </div>
                 <p className={styles.category}>{category}</p>
+            </div>
+            <div className={styles.dates}>
+                <p className={styles.date}>Published On : {formatDate(createdAt)}</p>
+                <p className={styles.date}>Last Updated : {formatDate(createdAt)}</p>
             </div>
             <h2>{title}</h2>
             <p className={styles.description}>{content}</p>

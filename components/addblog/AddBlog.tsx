@@ -1,3 +1,5 @@
+"use client"
+
 import { useRef, useState, useEffect } from "react"
 import styles from "./addblog.module.css"
 import { IoMdClose } from "react-icons/io"

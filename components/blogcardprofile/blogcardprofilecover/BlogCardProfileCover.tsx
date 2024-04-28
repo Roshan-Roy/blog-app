@@ -3,6 +3,8 @@ import styles from "./blogcardprofilecover.module.css"
 import Image from 'next/image'
 import { FaArrowRight } from "react-icons/fa6"
 import formatDate from '@/lib/fomatDate'
+import { AiOutlineDelete } from "react-icons/ai"
+import { FiEdit } from 'react-icons/fi'
 
 type BlogType = {
     title: string;
@@ -22,10 +24,21 @@ const BlogCardProfileCover = ({
     return (
         <div className={styles.container}>
             <div className={styles.image}>
-                <Image src={image as string} alt="featured-image" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" fill/>
+                <Image src={image as string} alt="featured-image" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" fill />
+                <div className={styles.dlt_edit}>
+                    <span>
+                        <AiOutlineDelete />
+                    </span>
+                    <span>
+                        <FiEdit />
+                    </span>
+                </div>
                 <p className={styles.category}>{category}</p>
             </div>
-            <p className={styles.date}>{formatDate(createdAt)}</p>
+            <div className={styles.dates}>
+                <p className={styles.date}>Published On : {formatDate(createdAt)}</p>
+                <p className={styles.date}>Last Updated : {formatDate(createdAt)}</p>
+            </div>
             <h2>{title}</h2>
             <p className={styles.description}>{content}</p>
             <div className={styles.footer}>

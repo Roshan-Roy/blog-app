@@ -1,8 +1,46 @@
-.container{
+.container {
   display: grid;
   width: 70%;
   margin: 0 auto;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   padding-bottom: 60px;
+}
+
+.no_blogs_container {
+  width: 70%;
+  margin: 0 auto;
+  padding-bottom: 60px;
+}
+
+.no_blogs {
+  border-radius: 20px;
+  height: 460px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.no_blogs>div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.no_blogs>div>svg {
+  font-size: 90px;
+  color: #666;
+}
+
+.no_blogs>div>h2{
+  color: #666;
+  margin: 15px 0 30px 0;
+  font-size: 23px;
+}
+
+.addblog_text{
+  color: var(--mc);
+  font-weight: 500;
+  cursor: pointer;
 }
