@@ -3,35 +3,35 @@ import styles from "./blogcardprofilecover.module.css"
 import Image from 'next/image'
 import { FaArrowRight } from "react-icons/fa6"
 import formatDate from '@/lib/fomatDate'
-import { AiOutlineDelete } from "react-icons/ai"
-import { FiEdit } from 'react-icons/fi'
+import DeleteBtn from './deletebtn/DeleteBtn'
+import EditBtn from './editbtn/EditBtn'
 
 type BlogType = {
+    id: string;
     title: string;
     content: string;
     category: string;
     createdAt: Date;
-    image: string | null
+    image: string;
+    imagePublicId: string;
 }
 
 const BlogCardProfileCover = ({
+    id,
     title,
     content,
     category,
     createdAt,
-    image
+    image,
+    imagePublicId
 }: BlogType) => {
     return (
         <div className={styles.container}>
             <div className={styles.image}>
-                <Image src={image as string} alt="featured-image" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" fill />
+                <Image src={image} alt="featured-image" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" fill />
                 <div className={styles.dlt_edit}>
-                    <span>
-                        <AiOutlineDelete />
-                    </span>
-                    <span>
-                        <FiEdit />
-                    </span>
+                    <DeleteBtn blogId={id} imagePublicId={imagePublicId} />
+                    <EditBtn />
                 </div>
                 <p className={styles.category}>{category}</p>
             </div>

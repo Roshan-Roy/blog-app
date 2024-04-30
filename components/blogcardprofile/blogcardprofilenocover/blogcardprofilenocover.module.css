@@ -42,22 +42,7 @@
 
 .dlt_edit {
     display: flex;
-    gap: 7px;
-}
-
-.dlt_edit span {
-    width: 32px;
-    height: 32px;
-    font-size: 25px;
-    color: var(--t);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-}
-
-.dlt_edit span:nth-child(1) {
-    font-size: 29px;
+    gap: 5px;
 }
 
 .dates {

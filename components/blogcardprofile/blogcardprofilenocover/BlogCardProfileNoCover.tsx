@@ -2,10 +2,11 @@ import React from 'react'
 import styles from "./blogcardprofilenocover.module.css"
 import { FaArrowRight } from "react-icons/fa6"
 import formatDate from '@/lib/fomatDate'
-import { AiOutlineDelete } from "react-icons/ai";
-import { FiEdit } from 'react-icons/fi'
+import DeleteBtn from './deletebtn/DeleteBtn'
+import EditBtn from './editbtn/EditBtn'
 
 type BlogType = {
+    id:string;
     title: string;
     content: string;
     category: string;
@@ -13,6 +14,7 @@ type BlogType = {
 }
 
 const BlogCardProfileNoCover = ({
+    id,
     title,
     content,
     category,
@@ -22,12 +24,8 @@ const BlogCardProfileNoCover = ({
         <div className={styles.container}>
             <div className={styles.header}>
                 <div className={styles.dlt_edit}>
-                    <span>
-                        <AiOutlineDelete />
-                    </span>
-                    <span>
-                        <FiEdit />
-                    </span>
+                    <DeleteBtn blogId={id}/>
+                    <EditBtn/>
                 </div>
                 <p className={styles.category}>{category}</p>
             </div>

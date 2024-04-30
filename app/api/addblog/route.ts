@@ -12,9 +12,11 @@ export const POST = async (req: NextRequest) => {
     const userId = formData.get("userId") as string
     try {
         let imageUrl: string | null = null
+        let imagePublicId: string | null = null
         if (image) {
             const response: any = await uploadImage(image, "blogging-app")
             imageUrl = response.secure_url
+            imagePublicId = response.public_id
         }
         await prisma.blog.create({
             data: {
@@ -22,7 +24,8 @@ export const POST = async (req: NextRequest) => {
                 content,
                 category,
                 userId,
-                image: imageUrl
+                image: imageUrl,
+                imagePublicId
             }
         })
         return NextResponse.json({
@@ -31,6 +34,8 @@ export const POST = async (req: NextRequest) => {
     } catch (e) {
         return NextResponse.json({
             message: "An Error occurred"
+        }, {
+            status: 500
         })
     }
 }
