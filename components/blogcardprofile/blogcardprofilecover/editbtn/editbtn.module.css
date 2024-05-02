@@ -10,3 +10,96 @@
     background-color: transparent;
     border: none;
 }
+
+.addblog {
+    height: 450px;
+    overflow-y: scroll;
+    position: relative;
+    padding: 30px;
+    text-align: center;
+}
+
+.addblog input[type="text"],
+.addblog textarea {
+    padding: 20px;
+    border: .5px solid #ccc;
+    border-radius: 15px;
+    font-size: 20px;
+    width: 100%;
+    margin: 25px 0 40px 0;
+}
+
+.addblog textarea {
+    height: 300px;
+    line-height: 1.5;
+    resize: vertical;
+}
+
+.modal {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    border: none;
+    border-radius: 10px;
+}
+
+.addblog_heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75px;
+    border-bottom: .5px solid #ccc;
+    box-sizing: content-box;
+    position: relative;
+}
+
+.addblog_heading h3 {
+    font-size: 23px;
+}
+
+.addblog_heading button {
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    border-radius: 100vh;
+    font-size: 25px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #555;
+    background-color: #ddd;
+    top: 15px;
+    right: 15px;
+}
+
+.addblog::-webkit-scrollbar {
+    width: 12px;
+}
+
+.addblog::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 10px;
+    border: 4px solid white;
+}
+
+.btn_container {
+    padding: 15px 30px 25px 30px;
+    display: flex;
+    gap: 15px;
+}
+
+.btn_container button {
+    flex: 1;
+    height: 55px;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    font-size: 16px;
+    background-color: var(--mc);
+}
+
+.disabled {
+    opacity: 0.7;
+}

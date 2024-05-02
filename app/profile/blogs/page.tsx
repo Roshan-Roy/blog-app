@@ -4,8 +4,7 @@ import { getServerSession } from "next-auth"
 import { authOptions } from "@/lib/auth"
 import BlogCardProfileCover from "@/components/blogcardprofile/blogcardprofilecover/BlogCardProfileCover"
 import BlogCardProfileNoCover from "@/components/blogcardprofile/blogcardprofilenocover/BlogCardProfileNoCover"
-import { BsPostcard } from "react-icons/bs";
-import AddBlog from "@/components/addblog/AddBlog"
+import { BsPostcard } from "react-icons/bs"
 
 const BlogsPage = async () => {
   const session = await getServerSession(authOptions)
@@ -20,9 +19,7 @@ const BlogsPage = async () => {
         <div>
           <BsPostcard />
           <h2>No Blogs Yet</h2>
-          <AddBlog>
-            <p className={styles.addblog_text}>Create Your First Blog</p>
-          </AddBlog>
+          <p>Click ' + ' To Create Your First Blog </p>
         </div>
       </div>
     </div>

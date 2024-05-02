@@ -35,6 +35,7 @@ const AddBlog = ({ children }: {
             category: "Books"
         })
         uptImage(null)
+        uptLoading(false)
     }
     const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
@@ -52,7 +53,6 @@ const AddBlog = ({ children }: {
         if (response.ok) {
             console.log("Blog added")
             router.refresh()
-            uptLoading(false)
         } else {
             console.log("An error occurred")
         }
@@ -95,7 +95,7 @@ const AddBlog = ({ children }: {
                             {categories.map(e => <Category key={e} name={e} current={data.category} func={handleChangeCategory} />)}
                         </div>
                     </div>
-                    <div className={styles.change_container}>
+                    <div className={styles.btn_container}>
                         <button className={disabled || loading ? styles.disabled : undefined} disabled={disabled || loading}>Add Blog</button>
                         {loading && <Spinner />}
                     </div>

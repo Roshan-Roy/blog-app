@@ -25,7 +25,7 @@ const BlogCardProfileNoCover = ({
             <div className={styles.header}>
                 <div className={styles.dlt_edit}>
                     <DeleteBtn blogId={id}/>
-                    <EditBtn/>
+                    <EditBtn title={title} content={content} blogId={id}/>
                 </div>
                 <p className={styles.category}>{category}</p>
             </div>

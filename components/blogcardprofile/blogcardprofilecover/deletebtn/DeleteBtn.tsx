@@ -4,12 +4,13 @@ import React from 'react'
 import { AiOutlineDelete } from 'react-icons/ai'
 import { useRef } from 'react'
 import styles from "./deletebtn.module.css"
+import { useRouter } from 'next/navigation'
 
 const DeleteBtn = ({ blogId, imagePublicId }: {
     blogId: string,
     imagePublicId: string;
 }) => {
-    console.log(blogId, imagePublicId)
+    const router = useRouter()
     const modal = useRef<HTMLDialogElement>(null)
     const handleShowModal = () => {
         modal.current?.showModal()
@@ -18,9 +19,14 @@ const DeleteBtn = ({ blogId, imagePublicId }: {
         modal.current?.close()
     }
     const handleDelete = async () => {
-        await fetch(`/api/deleteblogimage?blogId=${blogId}&imagePublicId=${imagePublicId}`, {
+        const response = await fetch(`/api/deleteblogimage?blogId=${blogId}&imagePublicId=${imagePublicId}`, {
             method: "DELETE"
         })
+        if (response.ok) {
+            router.refresh()
+        } else {
+            alert("Something went wrong")
+        }
     }
     return (
         <>

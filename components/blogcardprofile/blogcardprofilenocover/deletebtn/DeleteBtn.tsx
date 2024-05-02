@@ -4,6 +4,7 @@ import React from 'react'
 import { AiOutlineDelete } from 'react-icons/ai'
 import { useRef } from 'react'
 import styles from "./deletebtn.module.css"
+import { deleteBlogAction } from '@/actions/deleteBlogAction'
 
 const DeleteBtn = ({ blogId }: {
     blogId: string;
@@ -17,7 +18,7 @@ const DeleteBtn = ({ blogId }: {
         modal.current?.close()
     }
     const handleDelete = async () => {
-
+        await deleteBlogAction(blogId)
     }
     return (
         <>

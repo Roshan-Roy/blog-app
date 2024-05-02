@@ -12,8 +12,8 @@ type BlogType = {
     content: string;
     category: string;
     createdAt: Date;
-    image: string;
-    imagePublicId: string;
+    image: string | null;
+    imagePublicId: string | null;
 }
 
 const BlogCardProfileCover = ({
@@ -28,10 +28,10 @@ const BlogCardProfileCover = ({
     return (
         <div className={styles.container}>
             <div className={styles.image}>
-                <Image src={image} alt="featured-image" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" fill />
+                <Image src={image as string} alt="featured-image" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" fill />
                 <div className={styles.dlt_edit}>
-                    <DeleteBtn blogId={id} imagePublicId={imagePublicId} />
-                    <EditBtn />
+                    <DeleteBtn blogId={id} imagePublicId={imagePublicId as string} />
+                    <EditBtn title={title} content={content} blogId={id} />
                 </div>
                 <p className={styles.category}>{category}</p>
             </div>

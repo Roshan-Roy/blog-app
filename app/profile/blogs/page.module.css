@@ -38,9 +38,3 @@
   margin: 15px 0 30px 0;
   font-size: 23px;
 }
-
-.addblog_text{
-  color: var(--mc);
-  font-weight: 500;
-  cursor: pointer;
-}

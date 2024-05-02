@@ -131,13 +131,13 @@
     border: 4px solid white;
 }
 
-.change_container {
+.btn_container {
     padding: 15px 30px 25px 30px;
     display: flex;
     gap: 15px;
 }
 
-.change_container button {
+.btn_container button {
     flex: 1;
     height: 55px;
     border-radius: 10px;
