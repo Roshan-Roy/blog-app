@@ -19,7 +19,7 @@ const BlogsPage = async () => {
         <div>
           <BsPostcard />
           <h2>No Blogs Yet</h2>
-          <p>Click ' + ' To Create Your First Blog </p>
+          <p>Click &apos; + &apos; To Create Your First Blog </p>
         </div>
       </div>
     </div>
