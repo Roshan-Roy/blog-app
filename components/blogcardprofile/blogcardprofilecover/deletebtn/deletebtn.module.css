@@ -1,13 +1,13 @@
 .dlt_btn {
     width: 32px;
     height: 32px;
-    font-size: 29px;
-    color: white;
+    font-size: 22px;
+    background-color: white;
+    border-radius: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    background-color: transparent;
     border: none;
 }
 
@@ -29,7 +29,14 @@
 }
 
 .modal p {
-    margin: 30px 0 35px 0;
+    padding: 30px 0 35px 0;
+}
+
+.modal .error{
+    color: red;
+    padding:0 0 15px 0;
+    font-weight: 500;
+    font-size: 15px;
 }
 
 .footer {
@@ -44,6 +51,10 @@
     border-radius: 10px;
     font-size: 15px;
     font-weight: 500;
+}
+
+.footer.disabled button{
+    opacity: 0.7;
 }
 
 .ok_btn {

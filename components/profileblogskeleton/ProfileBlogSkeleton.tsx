@@ -4,14 +4,18 @@ const ProfileBlogSkeleton = () => {
     return (
         <div className={styles.container}>
             <div className={styles.image}>
-                <p className={styles.category}></p>
+                <div className={styles.dlt_edit}>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div className={styles.category}></div>
             </div>
-            <p className={styles.date}></p>
-            <h2></h2>
+            <div className={styles.date}></div>
+            <div className={styles.heading}></div>
             <p className={styles.description}></p>
             <div className={styles.footer}>
-                <button></button>
-                <p></p>
+                <div className={styles.btn}></div>
+                <div className={styles.landc}></div>
             </div>
         </div>
     )

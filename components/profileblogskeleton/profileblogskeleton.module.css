@@ -12,10 +12,13 @@
     transition: .1s linear;
 }
 
-.container h2,
-.container .image,
-.container p:not(.category),
-.container button {
+.heading,
+.image,
+.description,
+.date,
+.heading,
+.btn,
+.landc {
     background: linear-gradient(120deg,
             #e5e5e5 30%,
             #f0f0f0 38%,
@@ -32,7 +35,7 @@
     }
 }
 
-.container h2 {
+.heading {
     height: 30px;
     width: 160px;
 }
@@ -54,6 +57,21 @@
     background-color: white;
 }
 
+.dlt_edit {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    display: flex;
+    gap: 7px;
+}
+
+.dlt_edit div {
+    border-radius: 5px;
+    width: 32px;
+    height: 32px;
+    background-color: white;
+}
+
 .date {
     height: 20px;
     width: 30%;
@@ -70,16 +88,16 @@
     align-items: center;
 }
 
-.footer button {
-    height: 30px;
+.btn {
+    height: 35px;
     width: 100px;
     border-radius: 8px;
     border: none;
 }
 
-.footer p {
+.landc {
     font-size: 12px;
     margin-right: 10px;
     width: 130px;
-    height: 15px;
+    height: 20px;
 }

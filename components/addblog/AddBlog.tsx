@@ -98,7 +98,7 @@ const AddBlog = ({ children }: {
                             {categories.map(e => <Category key={e} name={e} current={data.category} func={handleChangeCategory} />)}
                         </div>
                     </div>
-                    {error && <p className={styles.error}>Oops, an error occurred !</p>}
+                    {error && <p className={styles.error}>An error occurred !</p>}
                     <div className={styles.btn_container}>
                         <button className={disabled || loading ? styles.disabled : undefined} disabled={disabled || loading}>Add Blog</button>
                         {loading && <Spinner />}

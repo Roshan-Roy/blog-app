@@ -2,15 +2,16 @@
 
 import React from 'react'
 import { AiOutlineDelete } from 'react-icons/ai'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import styles from "./deletebtn.module.css"
 import { deleteBlogAction } from '@/actions/deleteBlogAction'
+import Spinner from './spinner/Spinner'
 
 const DeleteBtn = ({ blogId }: {
     blogId: string;
 }) => {
-    console.log(blogId)
     const modal = useRef<HTMLDialogElement>(null)
+    const [loading, uptLoading] = useState(false)
     const handleShowModal = () => {
         modal.current?.showModal()
     }
@@ -18,6 +19,7 @@ const DeleteBtn = ({ blogId }: {
         modal.current?.close()
     }
     const handleDelete = async () => {
+        uptLoading(true)
         await deleteBlogAction(blogId)
     }
     return (
@@ -25,9 +27,10 @@ const DeleteBtn = ({ blogId }: {
             <dialog ref={modal} className={styles.modal}>
                 <h3>Delete Blog</h3>
                 <p>Are you sure you want to delete this blog ?</p>
-                <div className={styles.footer}>
-                    <button className={styles.cancel_btn} onClick={handleCloseModal}>Cancel</button>
-                    <button className={styles.ok_btn} onClick={handleDelete}>Delete</button>
+                <div className={loading ? `${styles.footer} ${styles.disabled}` : styles.footer}>
+                    <button disabled={loading} className={styles.cancel_btn} onClick={handleCloseModal}>Cancel</button>
+                    <button disabled={loading} className={styles.ok_btn} onClick={handleDelete}>Delete</button>
+                    {loading && <Spinner />}
                 </div>
             </dialog>
             <button onClick={handleShowModal} className={styles.dlt_btn}>

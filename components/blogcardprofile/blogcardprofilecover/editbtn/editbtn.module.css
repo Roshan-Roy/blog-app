@@ -1,14 +1,14 @@
 .edit_btn {
     width: 32px;
     height: 32px;
-    font-size: 25px;
-    color: white;
+    font-size: 18px;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    background-color: transparent;
+    background-color: white;
     border: none;
+    border-radius: 5px;
 }
 
 .editblog {
