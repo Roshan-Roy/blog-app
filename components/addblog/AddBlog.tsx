@@ -23,6 +23,7 @@ const AddBlog = ({ children }: {
     const [image, uptImage] = useState<File | null>(null)
     const [disabled, uptDisabled] = useState(false)
     const [loading, uptLoading] = useState(false)
+    const [error,uptError] = useState(false)
     const modal = useRef<HTMLDialogElement>(null)
     const handleShowBtnClick = () => {
         modal.current?.showModal()
@@ -36,6 +37,7 @@ const AddBlog = ({ children }: {
         })
         uptImage(null)
         uptLoading(false)
+        uptError(false)
     }
     const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
@@ -46,17 +48,18 @@ const AddBlog = ({ children }: {
         if (image) formData.append("image", image)
         if (session?.user.id) formData.append("userId", session.user.id);
         uptLoading(true)
+        uptError(false)
         const response = await fetch("/api/addblog", {
             method: "POST",
             body: formData
         })
         if (response.ok) {
-            console.log("Blog added")
+            handleCloseBtnClick()
             router.refresh()
         } else {
-            console.log("An error occurred")
+            uptError(true)
+            uptLoading(false)
         }
-        handleCloseBtnClick()
     }
     const handleChangeCategory = (name: string) => {
         uptData(e => ({ ...e, category: name }))
@@ -95,6 +98,7 @@ const AddBlog = ({ children }: {
                             {categories.map(e => <Category key={e} name={e} current={data.category} func={handleChangeCategory} />)}
                         </div>
                     </div>
+                    {error && <p className={styles.error}>Oops, an error occurred !</p>}
                     <div className={styles.btn_container}>
                         <button className={disabled || loading ? styles.disabled : undefined} disabled={disabled || loading}>Add Blog</button>
                         {loading && <Spinner />}

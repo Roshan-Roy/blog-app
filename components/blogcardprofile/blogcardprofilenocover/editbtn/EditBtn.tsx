@@ -45,12 +45,12 @@ const EditBtn = ({ title, content, blogId }: {
   return (
     <>
       <dialog className={styles.modal} ref={modal}>
-        <div className={styles.addblog_heading}>
+        <div className={styles.editblog_heading}>
           <h3>Update Blog</h3>
           <button onClick={handleCloseBtnClick}><IoMdClose /></button>
         </div>
         <form onSubmit={handleFormSubmit}>
-          <div className={styles.addblog}>
+          <div className={styles.editblog}>
             <h3><label htmlFor="title">Title</label></h3>
             <input type="text" id="title" placeholder="Title" value={data.title} onChange={elm => uptData(e => ({ ...e, title: elm.target.value }))} />
             <h3><label htmlFor="content">Content</label></h3>

@@ -10,7 +10,7 @@
     border: none;
 }
 
-.addblog {
+.editblog {
     height: 450px;
     overflow-y: scroll;
     position: relative;
@@ -18,8 +18,8 @@
     text-align: center;
 }
 
-.addblog input[type="text"],
-.addblog textarea {
+.editblog input[type="text"],
+.editblog textarea {
     padding: 20px;
     border: .5px solid #ccc;
     border-radius: 15px;
@@ -28,7 +28,7 @@
     margin: 25px 0 40px 0;
 }
 
-.addblog textarea {
+.editblog textarea {
     height: 300px;
     line-height: 1.5;
     resize: vertical;
@@ -43,7 +43,7 @@
     border-radius: 10px;
 }
 
-.addblog_heading {
+.editblog_heading {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -53,11 +53,11 @@
     position: relative;
 }
 
-.addblog_heading h3 {
+.editblog_heading h3 {
     font-size: 23px;
 }
 
-.addblog_heading button {
+.editblog_heading button {
     width: 45px;
     height: 45px;
     position: absolute;
@@ -73,11 +73,11 @@
     right: 15px;
 }
 
-.addblog::-webkit-scrollbar {
+.editblog::-webkit-scrollbar {
     width: 12px;
 }
 
-.addblog::-webkit-scrollbar-thumb {
+.editblog::-webkit-scrollbar-thumb {
     background-color: #ccc;
     border-radius: 10px;
     border: 4px solid white;

@@ -1,5 +1,5 @@
 .addblog {
-    height: 450px;
+    height: 440px;
     overflow-y: scroll;
     position: relative;
     padding: 30px;
@@ -59,17 +59,18 @@
     display: flex;
     gap: 10px;
 }
-.deletebtn_container button{
-   flex-basis: 50px;
-   border-radius: 10px;
-   background-color: red;
-   border: none;
-   font-size: 27px;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   background-color: var(--lt);
-   color: white;
+
+.deletebtn_container button {
+    flex-basis: 50px;
+    border-radius: 10px;
+    background-color: red;
+    border: none;
+    font-size: 27px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--lt);
+    color: white;
 }
 
 .addblog input[type="file"] {
@@ -132,7 +133,7 @@
 }
 
 .btn_container {
-    padding: 15px 30px 25px 30px;
+    padding: 18px 30px 25px 30px;
     display: flex;
     gap: 15px;
 }
@@ -152,6 +153,15 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 12px;
     margin-top: 35px;
+}
+
+.error {
+    color: white;
+    font-weight: 500;
+    font-size: 15px;
+    color: red;
+    text-align: center;
+    padding-top: 10px;
 }
 
 .disabled {
