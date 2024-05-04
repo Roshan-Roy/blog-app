@@ -12,6 +12,7 @@ type BlogType = {
     content: string;
     category: string;
     createdAt: Date;
+    updatedAt: Date;
     image: string | null;
     imagePublicId: string | null;
 }
@@ -22,6 +23,7 @@ const BlogCardProfileCover = ({
     content,
     category,
     createdAt,
+    updatedAt,
     image,
     imagePublicId
 }: BlogType) => {
@@ -37,7 +39,7 @@ const BlogCardProfileCover = ({
             </div>
             <div className={styles.dates}>
                 <p className={styles.date}>Published On : {formatDate(createdAt)}</p>
-                <p className={styles.date}>Last Updated : {formatDate(createdAt)}</p>
+                <p className={styles.date}>Last Updated : {formatDate(updatedAt)}</p>
             </div>
             <h2>{title}</h2>
             <p className={styles.description}>{content}</p>

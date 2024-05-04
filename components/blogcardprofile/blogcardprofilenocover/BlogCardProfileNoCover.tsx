@@ -6,11 +6,12 @@ import DeleteBtn from './deletebtn/DeleteBtn'
 import EditBtn from './editbtn/EditBtn'
 
 type BlogType = {
-    id:string;
+    id: string;
     title: string;
     content: string;
     category: string;
     createdAt: Date;
+    updatedAt: Date;
 }
 
 const BlogCardProfileNoCover = ({
@@ -18,20 +19,21 @@ const BlogCardProfileNoCover = ({
     title,
     content,
     category,
-    createdAt
+    createdAt,
+    updatedAt
 }: BlogType) => {
     return (
         <div className={styles.container}>
             <div className={styles.header}>
                 <div className={styles.dlt_edit}>
-                    <DeleteBtn blogId={id}/>
-                    <EditBtn title={title} content={content} blogId={id}/>
+                    <DeleteBtn blogId={id} />
+                    <EditBtn title={title} content={content} blogId={id} />
                 </div>
                 <p className={styles.category}>{category}</p>
             </div>
             <div className={styles.dates}>
                 <p className={styles.date}>Published On : {formatDate(createdAt)}</p>
-                <p className={styles.date}>Last Updated : {formatDate(createdAt)}</p>
+                <p className={styles.date}>Last Updated : {formatDate(updatedAt)}</p>
             </div>
             <h2>{title}</h2>
             <p className={styles.description}>{content}</p>
