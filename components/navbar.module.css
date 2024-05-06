@@ -1,8 +1,16 @@
-.container{
-    background-color:white;
+.wrapper {
+    height: 80px;
+}
+
+.container {
+    background-color: white;
     display: flex;
-    padding: 30px;
+    height: 80px;
     gap: 15px;
-    border-bottom: 1px solid rgb(193, 193, 193);
     justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+    box-shadow: var(--bs);
 }

@@ -82,11 +82,12 @@
     display: flex;
     padding: 12px 12px 12px 15px;
     border-radius: 8px;
-    gap: 12px;
+    gap: 15px;
     background-color: var(--t);
     font-weight: bold;
     transition: .1s linear;
     cursor: pointer;
+    align-items: center;
 }
 
 .readmore_btn button {

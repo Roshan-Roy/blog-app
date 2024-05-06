@@ -5,6 +5,7 @@ import { FaArrowRight } from "react-icons/fa6"
 import formatDate from '@/lib/fomatDate'
 import DeleteBtn from './deletebtn/DeleteBtn'
 import EditBtn from './editbtn/EditBtn'
+import Link from 'next/link'
 
 type BlogType = {
     id: string;
@@ -44,10 +45,10 @@ const BlogCardProfileCover = ({
             <h2>{title}</h2>
             <p className={styles.description}>{content}</p>
             <div className={styles.footer}>
-                <div className={styles.readmore_btn}>
-                    <button>Read More</button>
+                <Link className={styles.readmore_btn} href={`/blog/${id}`}>
+                    <button>Read Post</button>
                     <FaArrowRight />
-                </div>
+                </Link>
                 <p className={styles.landc}>23 Likes, 35 Comments</p>
             </div>
         </div>

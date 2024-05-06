@@ -11,16 +11,16 @@ const Navbar = () => {
         linksArray = [
             {
                 name: "Home",
-                route: ["/"]
+                route: ["/","blog"]
             }, {
                 name: "Dashboard",
                 route: ["/dashboard"]
             }, {
                 name: "Profile",
-                route: ["/profile/blogs","/profile/saved"]
-            },{
-                name:"Images",
-                route:["/images"]
+                route: ["/profile/blogs", "/profile/saved"]
+            }, {
+                name: "Images",
+                route: ["/images"]
             }
         ]
     } else {
@@ -38,10 +38,12 @@ const Navbar = () => {
         ]
     }
     return (
-        <div className={styles.container}>
-            {
-                linksArray.map((e, i) => <Links key={`${i}${e.name}`} {...e} />)
-            }
+        <div className={styles.wrapper}>
+            <div className={styles.container}>
+                {
+                    linksArray.map((e, i) => <Links key={`${i}${e.name}`} {...e} />)
+                }
+            </div>
         </div>
     )
 }
