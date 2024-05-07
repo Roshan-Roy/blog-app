@@ -21,6 +21,7 @@ const DeleteBtn = ({ blogId }: {
     const handleDelete = async () => {
         uptLoading(true)
         await deleteBlogAction(blogId)
+        handleCloseModal()
     }
     return (
         <>

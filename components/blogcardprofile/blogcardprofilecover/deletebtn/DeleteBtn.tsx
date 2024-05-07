@@ -29,6 +29,7 @@ const DeleteBtn = ({ blogId, imagePublicId }: {
         })
         if (response.ok) {
             router.refresh()
+            handleCloseModal()
         } else {
             uptLoading(false)
             uptError(true)
