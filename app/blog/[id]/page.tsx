@@ -6,6 +6,7 @@ import AddComment from "@/components/addcomment/AddComment"
 import Comment from "@/components/comment/Comment"
 import { getServerSession } from "next-auth"
 import { authOptions } from "@/lib/auth"
+import { Suspense } from "react"
 
 const Blog = async ({ params }: {
   params: any
@@ -14,6 +15,9 @@ const Blog = async ({ params }: {
   const blog = await prisma.blog.findUnique({
     where: {
       id: params.id
+    },
+    include: {
+      comments: true
     }
   })
   console.log(blog)
@@ -30,7 +34,7 @@ const Blog = async ({ params }: {
           </div>
           <div className={styles.comment_header}>
             <p>Comments</p>
-            <p>11</p>
+            <p>{blog.comments.length}</p>
           </div>
         </div>
       </div>
@@ -51,11 +55,8 @@ const Blog = async ({ params }: {
         <div className={styles.comment_body}>
           <AddComment userId={session?.user.id} blogId={blog.id} />
           <div className={styles.comments_container}>
-            <Comment />
-            <Comment />
-            <Comment />
-            <Comment />
-            <Comment />
+            {blog.comments.filter(e => session?.user.id === e.userId).map(e => <Suspense key={e.id} fallback={<p>Loading...</p>}><Comment {...e} deleteBtn={true} /></Suspense>)}
+            {blog.comments.filter(e => session?.user.id !== e.userId).map(e => <Suspense key={e.id} fallback={<p>Loading...</p>}><Comment {...e} deleteBtn={false} /></Suspense>)}
           </div>
         </div>
       </div>

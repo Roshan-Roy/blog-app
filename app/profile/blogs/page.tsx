@@ -11,6 +11,9 @@ const BlogsPage = async () => {
   const blogs = await prisma.blog.findMany({
     where: {
       userId: session?.user.id
+    },
+    include: {
+      comments: true
     }
   })
   if (blogs.length === 0) return (
@@ -27,9 +30,9 @@ const BlogsPage = async () => {
   return (
     <div className={styles.container}>
       {
-        blogs.map((e, i) => {
-          if (e.image) return <BlogCardProfileCover key={`${i}${e.title}`} {...e} />
-          return <BlogCardProfileNoCover key={`${i}${e.title}`} {...e} />
+        blogs.map(e => {
+          if (e.image) return <BlogCardProfileCover key={e.id} noOfComments={e.comments.length} {...e} />
+          return <BlogCardProfileNoCover key={e.id} noOfComments={e.comments.length} {...e} />
         })
       }
     </div>

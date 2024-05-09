@@ -1,5 +1,53 @@
-.container{
-    height: 100px;
+.container {
+    border-bottom: 1px solid #ccc;
+    margin: 30px 0;
+    word-wrap: break-word;
+}
+
+.profile_container {
+    display: flex;
+    height: 50px;
+    justify-content: space-between;
+}
+
+.ni_container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.ni_container p{
+    font-weight: 600;
+    font-size: 14px;
+    width: 120px;
+    line-height: 1.4;
+}
+.image_container {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 100vh;
+}
+.comment{
+    font-weight: 500;
+    margin: 20px 0 27px 0;
+    line-height: 1.7;
+}
+.date_container{
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+    font-size: 12px;
+}
+.delete_btn{
     background-color: red;
-    margin: 12px 0;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 100vh;
+    width: 32px;
+    height: 32px;
+    font-size: 17px;
 }

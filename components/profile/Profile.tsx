@@ -29,8 +29,8 @@ const Profile = async ({ userId }: { userId: string }) => {
             <Image src={`/profile/${user?.image}`} alt="profile picture" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" unoptimized fill />
           </div>
           <div className={styles.details_one}>
-            <h2 className={styles.username}>{user?.name}</h2>
-            <p className={styles.about}>{user?.bio}</p>
+            <h2>{user?.name}</h2>
+            <p>{user?.bio}</p>
             <div className={styles.links}>
               {user?.instagram && <Link href={user.instagram} target="_blank"><FaInstagram /></Link>}
               {user?.facebook && <Link href={user.facebook} target="_blank"><FaFacebook /></Link>}

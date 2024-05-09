@@ -53,6 +53,7 @@
     flex-basis: 75%;
     box-shadow: var(--bs);
     padding: 50px 50px 70px 50px;
+    border-radius:  0 0 20px 20px;
 }
 
 .comment_body {
