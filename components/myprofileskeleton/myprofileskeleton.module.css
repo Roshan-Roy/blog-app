@@ -1,0 +1,147 @@
+.profile_pic,
+.name,
+.bio div,
+.links div,
+.countboard div,
+.button,
+.nav_container div {
+    background: linear-gradient(120deg,
+            #ddd 30%,
+            #f0f0f0 38%,
+            #f0f0f0 40%,
+            #ddd 48%);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    animation: load 2s infinite;
+}
+
+@keyframes load {
+    100% {
+        background-position: -100% 0;
+    }
+}
+
+.wrapper {
+    width: 100%;
+    background-color: white;
+    height: 420px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: var(--bs);
+}
+
+.container {
+    flex-basis: 65%;
+    height: 260px;
+    max-width: 1150px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile_pic {
+    border-radius: 10px;
+    width: 260px;
+    overflow: hidden;
+}
+
+.details_one {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.name {
+    width: 280px;
+    height: 40px;
+    border-radius: 10px;
+}
+
+.bio {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.bio div {
+    height: 15px;
+    border-radius: 10px;
+}
+
+.bio div:nth-child(2) {
+    width: 150px;
+    margin: 0 auto;
+}
+
+.links {
+    display: flex;
+    gap: 20px;
+}
+
+.links div {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+}
+
+.details_two {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 250px;
+}
+
+.countboard_container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.countboard {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.countboard div {
+    width: 65px;
+    border-radius: 10px;
+}
+
+.countboard div:nth-child(1) {
+    height: 50px;
+}
+
+.countboard div:nth-child(2) {
+    height: 18px;
+}
+
+.button {
+    height: 50px;
+    border-radius: 10px;
+}
+
+.nav_container {
+    width: 35%;
+    height: 75px;
+    margin: 20px auto;
+    background-color: white;
+    border-radius: 100vh;
+    box-shadow: var(--bs);
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.link {
+    flex: 1;
+    background-color: grey;
+    border-radius: 100vh;
+}
+
+.add_btn{
+    width: 55px;
+    background-color: grey;
+    border-radius: 100vh;
+}

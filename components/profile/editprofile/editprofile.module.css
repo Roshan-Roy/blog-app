@@ -4,7 +4,7 @@
     color: white;
     font-size: 16px;
     background-color: var(--mc);
-    border-radius: 100vh;
+    border-radius: 10px;
 }
 
 .change_container {
