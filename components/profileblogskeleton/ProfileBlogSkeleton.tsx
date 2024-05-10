@@ -12,7 +12,7 @@ const ProfileBlogSkeleton = () => {
             </div>
             <div className={styles.date}></div>
             <div className={styles.heading}></div>
-            <p className={styles.description}></p>
+            <div className={styles.description}></div>
             <div className={styles.footer}>
                 <div className={styles.btn}></div>
                 <div className={styles.landc}></div>

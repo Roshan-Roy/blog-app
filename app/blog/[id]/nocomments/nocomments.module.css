@@ -1,0 +1,17 @@
+.container {
+    height: calc(100% - 88.8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #999;
+    gap: 20px;
+}
+
+.container svg {
+    font-size: 60px;
+}
+
+.container h3 {
+    font-size: 16px;
+}

@@ -3,18 +3,16 @@ import { prisma } from "@/lib/db"
 import formatDate from "@/lib/fomatDate"
 import Image from "next/image"
 import Link from "next/link"
-import { AiOutlineDelete } from "react-icons/ai"
+import DeleteBtn from "./deletebtn/DeleteBtn"
 
 const Comment = async ({
   id,
-  blogId,
   userId,
   comment,
   createdAt,
   deleteBtn
 }: {
   id: string;
-  blogId: string | null;
   userId: string | null;
   comment: string;
   createdAt: Date;
@@ -25,6 +23,7 @@ const Comment = async ({
       id: userId as string
     }
   })
+
   return (
     <div className={styles.container}>
       <div className={styles.profile_container}>
@@ -34,7 +33,7 @@ const Comment = async ({
           </div>
           <p><Link href="/">{user?.name}</Link></p>
         </div>
-        {deleteBtn && <button className={styles.delete_btn}><AiOutlineDelete/></button>}
+        {deleteBtn && <DeleteBtn commentId={id}/>}
       </div>
       <p className={styles.comment}>{comment}</p>
       <div className={styles.date_container}>

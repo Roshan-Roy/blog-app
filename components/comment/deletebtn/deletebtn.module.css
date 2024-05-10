@@ -1,0 +1,12 @@
+.delete_btn{
+    background-color: var(--lt);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 100vh;
+    width: 32px;
+    height: 32px;
+    font-size: 15px;
+}

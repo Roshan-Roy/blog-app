@@ -1,0 +1,71 @@
+.image,
+.name,
+.comments div,
+.date_container div {
+    background: linear-gradient(120deg,
+            #ddd 30%,
+            #f0f0f0 38%,
+            #f0f0f0 40%,
+            #ddd 48%);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    animation: load 2s infinite;
+}
+
+@keyframes load {
+    100% {
+        background-position: -100% 0;
+    }
+}
+
+
+.container {
+    border-bottom: 1px solid #ccc;
+    margin: 30px 0;
+}
+
+.ni_container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.image {
+    width: 50px;
+    height: 50px;
+    border-radius: 100vh;
+}
+
+.name {
+    flex-basis: 45%;
+    height: 12px;
+    border-radius: 100vh;
+}
+
+.comments {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 20px 0 40px 0;
+}
+
+.comments div {
+    height: 12px;
+    border-radius: 100vh;
+}
+
+.comments div:nth-child(2) {
+    width: 75%;
+}
+
+.date_container {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.date_container div {
+    height: 12px;
+    flex-basis: 35%;
+    border-radius: 100vh
+}

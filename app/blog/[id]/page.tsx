@@ -7,6 +7,8 @@ import Comment from "@/components/comment/Comment"
 import { getServerSession } from "next-auth"
 import { authOptions } from "@/lib/auth"
 import { Suspense } from "react"
+import NoComments from "./nocomments/NoComments"
+import CommentSkeleton from "@/components/comment_skeleton/CommentSkeleton"
 
 const Blog = async ({ params }: {
   params: any
@@ -54,10 +56,10 @@ const Blog = async ({ params }: {
         </div>
         <div className={styles.comment_body}>
           <AddComment userId={session?.user.id} blogId={blog.id} />
-          <div className={styles.comments_container}>
-            {blog.comments.filter(e => session?.user.id === e.userId).map(e => <Suspense key={e.id} fallback={<p>Loading...</p>}><Comment {...e} deleteBtn={true} /></Suspense>)}
-            {blog.comments.filter(e => session?.user.id !== e.userId).map(e => <Suspense key={e.id} fallback={<p>Loading...</p>}><Comment {...e} deleteBtn={false} /></Suspense>)}
-          </div>
+          {blog.comments.length === 0 ? <NoComments /> : <div className={styles.comments_container}>
+            {blog.comments.filter(e => session?.user.id === e.userId).sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime()).map(e => <Suspense key={e.id} fallback={<CommentSkeleton />}><Comment {...e} deleteBtn={true} /></Suspense>)}
+            {blog.comments.filter(e => session?.user.id !== e.userId).sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime()).map(e => <Suspense key={e.id} fallback={<CommentSkeleton />}><Comment {...e} deleteBtn={false} /></Suspense>)}
+          </div>}
         </div>
       </div>
     </>
