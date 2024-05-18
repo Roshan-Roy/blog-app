@@ -13,7 +13,8 @@ const BlogsPage = async () => {
       userId: session?.user.id
     },
     include: {
-      comments: true
+      comments: true,
+      likes: true
     }
   })
   if (blogs.length === 0) return (
@@ -31,8 +32,8 @@ const BlogsPage = async () => {
     <div className={styles.container}>
       {
         blogs.map(e => {
-          if (e.image) return <BlogCardProfileCover key={e.id} noOfComments={e.comments.length} {...e} />
-          return <BlogCardProfileNoCover key={e.id} noOfComments={e.comments.length} {...e} />
+          if (e.image) return <BlogCardProfileCover key={e.id} noOfLikes={e.likes.length} noOfComments={e.comments.length} {...e} />
+          return <BlogCardProfileNoCover key={e.id} noOfLikes={e.likes.length} noOfComments={e.comments.length} {...e} />
         })
       }
     </div>

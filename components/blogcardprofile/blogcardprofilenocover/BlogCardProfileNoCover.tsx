@@ -13,7 +13,8 @@ type BlogType = {
     category: string;
     createdAt: Date;
     updatedAt: Date;
-    noOfComments:number;
+    noOfComments: number;
+    noOfLikes: number;
 }
 
 const BlogCardProfileNoCover = ({
@@ -23,7 +24,8 @@ const BlogCardProfileNoCover = ({
     category,
     createdAt,
     updatedAt,
-    noOfComments
+    noOfComments,
+    noOfLikes
 }: BlogType) => {
     return (
         <div className={styles.container}>
@@ -46,7 +48,7 @@ const BlogCardProfileNoCover = ({
                     <FaArrowRight />
                 </Link>
                 <p className={styles.landc}>
-                    23 Likes, {noOfComments} Comments
+                    {noOfLikes} Likes, {noOfComments} Comments
                 </p>
             </div>
         </div >

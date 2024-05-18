@@ -16,7 +16,8 @@ type BlogType = {
     updatedAt: Date;
     image: string | null;
     imagePublicId: string | null;
-    noOfComments:number;
+    noOfComments: number;
+    noOfLikes: number;
 }
 
 const BlogCardProfileCover = ({
@@ -28,7 +29,8 @@ const BlogCardProfileCover = ({
     updatedAt,
     image,
     imagePublicId,
-    noOfComments
+    noOfComments,
+    noOfLikes
 }: BlogType) => {
     return (
         <div className={styles.container}>
@@ -51,7 +53,7 @@ const BlogCardProfileCover = ({
                     <button>Read Post</button>
                     <FaArrowRight />
                 </Link>
-                <p className={styles.landc}>23 Likes, {noOfComments} Comments</p>
+                <p className={styles.landc}>{noOfLikes} Likes, {noOfComments} Comments</p>
             </div>
         </div>
     )

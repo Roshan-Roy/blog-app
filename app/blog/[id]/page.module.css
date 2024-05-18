@@ -20,6 +20,10 @@
     background-color: white;
     box-shadow: var(--bs);
     border-radius: 25px 25px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
 }
 
 .comment_header {

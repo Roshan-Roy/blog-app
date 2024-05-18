@@ -9,6 +9,8 @@ import { authOptions } from "@/lib/auth"
 import { Suspense } from "react"
 import NoComments from "./nocomments/NoComments"
 import CommentSkeleton from "@/components/comment_skeleton/CommentSkeleton"
+import Profile from "./profile/Profile"
+import Like from "./like/Like"
 
 const Blog = async ({ params }: {
   params: any
@@ -19,20 +21,23 @@ const Blog = async ({ params }: {
       id: params.id
     },
     include: {
-      comments: true
+      comments: true,
+      likes: true
     }
   })
   console.log(blog)
   if (!blog) {
     return <h1>No Blog found</h1>
   }
-
   return (
     <>
       <div className={styles.headers_wrapper}>
         <div className={styles.headers_container}>
           <div className={styles.content_header}>
-
+            <Profile />
+            <div>
+              <Like userId={session?.user.id} blogId={params.id} likedOrNot={blog.likes.some(e => e.userId === session?.user.id)} />
+            </div>
           </div>
           <div className={styles.comment_header}>
             <p>Comments</p>
