@@ -1,0 +1,24 @@
+.container{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.image{
+    position: relative;
+    width: 52px;
+    height: 52px;
+    border-radius: 100vh;
+    overflow: hidden;
+}
+.details{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+.name{
+    font-weight: 500;
+}
+.author{
+    color: var(--lt);
+    font-size: 13px;
+}

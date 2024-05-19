@@ -11,6 +11,7 @@ import NoComments from "./nocomments/NoComments"
 import CommentSkeleton from "@/components/comment_skeleton/CommentSkeleton"
 import Profile from "./profile/Profile"
 import Like from "./like/Like"
+import Save from "./save/Save"
 
 const Blog = async ({ params }: {
   params: any
@@ -22,7 +23,8 @@ const Blog = async ({ params }: {
     },
     include: {
       comments: true,
-      likes: true
+      likes: true,
+      saved: true
     }
   })
   console.log(blog)
@@ -34,9 +36,10 @@ const Blog = async ({ params }: {
       <div className={styles.headers_wrapper}>
         <div className={styles.headers_container}>
           <div className={styles.content_header}>
-            <Profile />
-            <div>
+            <Profile userId={blog.userId}/>
+            <div className={styles.landc}>
               <Like userId={session?.user.id} blogId={params.id} likedOrNot={blog.likes.some(e => e.userId === session?.user.id)} />
+              <Save userId={session?.user.id} blogId={params.id} savedOrNot={blog.saved.some(e => e.userId === session?.user.id)} />
             </div>
           </div>
           <div className={styles.comment_header}>

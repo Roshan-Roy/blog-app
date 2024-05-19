@@ -56,6 +56,6 @@
     }
 }
 
-.loader.pink {
-    border: 3px solid #ea64d9;
+.loader.dark {
+    border: 3px solid #444;
 }

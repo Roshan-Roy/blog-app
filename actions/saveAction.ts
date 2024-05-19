@@ -3,7 +3,7 @@
 import { revalidatePath } from "next/cache"
 import { prisma } from "@/lib/db"
 
-export const LikeAction = async (blogId: string, userId: string | undefined) => {
+export const saveAction = async (blogId: string, userId: string | undefined) => {
     const blog = await prisma.blog.findUnique({
         where: {
             id: blogId
@@ -12,22 +12,22 @@ export const LikeAction = async (blogId: string, userId: string | undefined) => 
     if (!blog) {
         revalidatePath("/")
     }
-    const liked = await prisma.like.findFirst({
+    const saved = await prisma.save.findFirst({
         where: {
             userId,
             blogId
         }
     })
-    if (liked) {
-        await prisma.like.delete({
+    if (saved) {
+        await prisma.save.delete({
             where: {
-                id: liked.id
+                id: saved.id
             }
         })
         revalidatePath("/")
         return false
     }
-    await prisma.like.create({
+    await prisma.save.create({
         data: {
             userId,
             blogId

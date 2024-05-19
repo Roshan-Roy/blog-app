@@ -8,11 +8,10 @@
     justify-content: center;
     align-items: center;
     font-size: 20px;
-    color:#444;
+    color: #444;
 }
 
-.container.liked {
-    color: #ea64d9;
-    background-color: #fdf0fb;
+.container.saved{
     border: none;
+    background-color: #eee;
 }
