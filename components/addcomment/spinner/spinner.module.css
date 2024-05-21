@@ -2,7 +2,7 @@
     width: 48px;
     aspect-ratio: 1;
     border-radius: 50%;
-    border: 7px solid var(--mc);
+    border: 7px solid var(--lt);
     animation:
         l20-1 0.8s infinite linear alternate,
         l20-2 1.6s infinite linear;
