@@ -12,6 +12,7 @@ import CommentSkeleton from "@/components/comment_skeleton/CommentSkeleton"
 import Profile from "./profile/Profile"
 import Like from "./like/Like"
 import Save from "./save/Save"
+import BlogLeftProfileSkeleton from "@/components/blogleftprofileskeleton/BlogLeftProfileSkeleton"
 
 const Blog = async ({ params }: {
   params: any
@@ -36,7 +37,7 @@ const Blog = async ({ params }: {
       <div className={styles.headers_wrapper}>
         <div className={styles.headers_container}>
           <div className={styles.content_header}>
-            <Profile userId={blog.userId}/>
+            <Suspense fallback={<BlogLeftProfileSkeleton />}><Profile userId={blog.userId} /></Suspense>
             <div className={styles.landc}>
               <Like userId={session?.user.id} blogId={params.id} likedOrNot={blog.likes.some(e => e.userId === session?.user.id)} />
               <Save userId={session?.user.id} blogId={params.id} savedOrNot={blog.saved.some(e => e.userId === session?.user.id)} />
