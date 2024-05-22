@@ -28,7 +28,6 @@ const Blog = async ({ params }: {
       saved: true
     }
   })
-  console.log(blog)
   if (!blog) {
     return <h1>No Blog found</h1>
   }

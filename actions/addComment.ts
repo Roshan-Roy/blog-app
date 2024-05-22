@@ -12,5 +12,4 @@ export const addComment = async (data: string, userId: string | undefined, blogI
       }
    })
    revalidatePath("/")
-   console.log("added")
 }

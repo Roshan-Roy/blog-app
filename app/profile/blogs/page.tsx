@@ -20,11 +20,9 @@ const BlogsPage = async () => {
   if (blogs.length === 0) return (
     <div className={styles.no_blogs_container}>
       <div className={styles.no_blogs}>
-        <div>
           <BsPostcard />
           <h2>No Blogs Yet</h2>
           <p>Click &apos; + &apos; To Create Your First Blog </p>
-        </div>
       </div>
     </div>
   )
