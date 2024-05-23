@@ -7,7 +7,7 @@ const Links = ({ name, route }: {
   route: string[]
 }) => {
   const pathName = usePathname()
-  return <Link className={route.includes(pathName) || route.includes(pathName.split("/")[1]) ? `${styles.link} ${styles.active}` : styles.link} href={route[0]}>{name}</Link>
+  return <Link className={route.includes(pathName) ? `${styles.link} ${styles.active}` : styles.link} href={route[0]}>{name}</Link>
 }
 
 export default Links

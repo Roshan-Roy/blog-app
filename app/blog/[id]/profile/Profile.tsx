@@ -3,8 +3,9 @@ import { prisma } from "@/lib/db"
 import Image from "next/image"
 import Link from "next/link"
 
-const Profile = async ({ userId }: {
-  userId: string | null
+const Profile = async ({ curUserId, userId }: {
+  curUserId: string | undefined;
+  userId: string | null;
 }) => {
   const user = await prisma.user.findUnique({
     where: {
@@ -17,7 +18,7 @@ const Profile = async ({ userId }: {
         <Link href={`/profile/${user?.id}`}><Image src={`/profile/${user?.image}`} alt="profile picture" fill /></Link>
       </div>
       <div className={styles.details}>
-        <p className={styles.name}><Link href={`/profile/${user?.id}`}>{user?.name}</Link></p>
+        <p className={styles.name}><Link href={`/profile/${user?.id}`}>{userId === curUserId ? `${user?.name} (You)` : user?.name}</Link></p>
         <p className={styles.author}>Author</p>
       </div>
     </div>

@@ -24,7 +24,6 @@ const Profile = async ({ params }: {
       }
     }
   })
-  console.log(user)
   return (
     <>
       <div className={styles.wrapper}>

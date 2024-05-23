@@ -21,7 +21,6 @@ const Profile = async ({ userId }: { userId: string }) => {
       }
     }
   })
-  console.log(user)
   return (
     <>
       <div className={styles.wrapper}>

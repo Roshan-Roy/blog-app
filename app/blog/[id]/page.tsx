@@ -36,7 +36,7 @@ const Blog = async ({ params }: {
       <div className={styles.headers_wrapper}>
         <div className={styles.headers_container}>
           <div className={styles.content_header}>
-            <Suspense fallback={<BlogLeftProfileSkeleton />}><Profile userId={blog.userId} /></Suspense>
+            <Suspense fallback={<BlogLeftProfileSkeleton />}><Profile curUserId={session?.user.id} userId={blog.userId} /></Suspense>
             <div className={styles.landc}>
               <Like userId={session?.user.id} blogId={params.id} likedOrNot={blog.likes.some(e => e.userId === session?.user.id)} />
               <Save userId={session?.user.id} blogId={params.id} savedOrNot={blog.saved.some(e => e.userId === session?.user.id)} />

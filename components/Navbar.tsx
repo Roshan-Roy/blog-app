@@ -11,7 +11,7 @@ const Navbar = () => {
         linksArray = [
             {
                 name: "Home",
-                route: ["/","blog"]
+                route: ["/"]
             }, {
                 name: "Dashboard",
                 route: ["/dashboard"]
