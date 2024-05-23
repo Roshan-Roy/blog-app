@@ -1,9 +1,10 @@
 .profile_pic,
 .name,
+.email,
 .bio div,
 .links div,
 .countboard div,
-.button,
+.header div,
 .nav_container div {
     background: linear-gradient(120deg,
             #ddd 30%,
@@ -48,7 +49,7 @@
 .details_one {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 }
 
@@ -57,7 +58,11 @@
     height: 40px;
     border-radius: 10px;
 }
-
+.email{
+    height: 15px;
+    border-radius: 10px;
+    width: 150px;
+}
 .bio {
     width: 300px;
     display: flex;
@@ -77,12 +82,12 @@
 
 .links {
     display: flex;
-    gap: 20px;
+    justify-content: space-between;
 }
 
 .links div {
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
     border-radius: 10px;
 }
 
@@ -117,31 +122,20 @@
     height: 18px;
 }
 
-.button {
-    height: 50px;
-    border-radius: 10px;
-}
-
-.nav_container {
-    width: 35%;
+.header{
     height: 75px;
-    margin: 20px auto;
     background-color: white;
-    border-radius: 100vh;
+    margin: 20px auto;
+    width: 70%;
     box-shadow: var(--bs);
-    padding: 10px;
+    border-radius: 100vh;
     display: flex;
-    gap: 10px;
+    justify-content: center;
+    align-items: center;
 }
 
-.link {
-    flex: 1;
-    background-color: grey;
-    border-radius: 100vh;
-}
-
-.add_btn{
-    width: 55px;
-    background-color: grey;
-    border-radius: 100vh;
+.header div{
+    border-radius: 10px;
+    width: 100px;
+    height: 20px;
 }

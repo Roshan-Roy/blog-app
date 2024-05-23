@@ -17,7 +17,7 @@ const Navbar = () => {
                 route: ["/dashboard"]
             }, {
                 name: "Profile",
-                route: ["/profile/blogs", "/profile/saved"]
+                route: ["/myprofile/blogs", "/myprofile/saved"]
             }
         ]
     } else {

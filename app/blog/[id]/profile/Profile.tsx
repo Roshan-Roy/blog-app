@@ -1,6 +1,7 @@
 import styles from "./profile.module.css"
 import { prisma } from "@/lib/db"
 import Image from "next/image"
+import Link from "next/link"
 
 const Profile = async ({ userId }: {
   userId: string | null
@@ -13,10 +14,10 @@ const Profile = async ({ userId }: {
   return (
     <div className={styles.container}>
       <div className={styles.image}>
-        <Image src={`/profile/${user?.image}`} alt="profile picture" fill />
+        <Link href={`/profile/${user?.id}`}><Image src={`/profile/${user?.image}`} alt="profile picture" fill /></Link>
       </div>
       <div className={styles.details}>
-        <p className={styles.name}>{user?.name}</p>
+        <p className={styles.name}><Link href={`/profile/${user?.id}`}>{user?.name}</Link></p>
         <p className={styles.author}>Author</p>
       </div>
     </div>

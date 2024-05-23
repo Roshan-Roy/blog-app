@@ -1,0 +1,133 @@
+.wrapper {
+    width: 100%;
+    background-color: white;
+    height: 420px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: var(--bs);
+    margin-bottom: 20px;
+}
+
+.container_one {
+    flex-basis: 65%;
+    height: 260px;
+    max-width: 1150px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile_pic {
+    position: relative;
+    border-radius: 10px;
+    width: 260px;
+    overflow: hidden;
+}
+
+.details_one {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    word-wrap: break-word;
+}
+
+.details_one h2 {
+    font-size: 42px;
+    width: 400px;
+    line-height: 1.3;
+}
+
+.details_one p {
+    font-size: 18px;
+    width: 350px;
+    font-weight: 500;
+    color: var(--lt);
+    line-height: 2;
+}
+
+.details_one p.email {
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.5;
+    color: var(--mc);
+}
+
+.details_two {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 250px;
+}
+
+.countboard_container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.links {
+    display: flex;
+    justify-content: space-between;
+}
+
+.links a {
+    width: 42px;
+    height: 42px;
+    display: block;
+}
+
+.links a svg {
+    width: 100%;
+    height: 100%;
+}
+
+.container_two {
+    display: grid;
+    width: 70%;
+    margin: 0 auto;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding-bottom: 60px;
+}
+
+.heading {
+    background-color: white;
+    width: 70%;
+    margin: 0 auto 20px auto;
+    height: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 100vh;
+    box-shadow: var(--bs);
+}
+
+.no_blogs_container {
+    width: 70%;
+    margin: 0 auto;
+    padding-bottom: 60px;
+}
+
+.no_blogs {
+    border-radius: 20px;
+    height: 460px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.no_blogs svg {
+    font-size: 90px;
+    color: #666;
+}
+
+.no_blogs h2 {
+    color: #666;
+    margin-top: 30px;
+    font-size: 23px;
+}

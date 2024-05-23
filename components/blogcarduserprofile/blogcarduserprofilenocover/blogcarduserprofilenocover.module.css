@@ -1,0 +1,105 @@
+.container {
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: var(--bs);
+    padding: 25px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 460px;
+    transition: .1s linear;
+}
+
+.container:hover {
+    transform: scale(1.02);
+}
+
+.container h2 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.header {
+    display: flex;
+}
+
+.category {
+    background-color: var(--t);
+    color: white;
+    padding: 0 20px;
+    height: 32px;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dates {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.date {
+    color: #999;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.description {
+    font-size: 15px;
+    color: var(--lt);
+    line-height: 1.5;
+    height: 180px;
+    word-wrap: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 8;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 500;
+}
+
+.footer {
+    display: flex;
+    padding: 5px 0;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.readmore_btn {
+    display: flex;
+    padding: 12px 12px 12px 15px;
+    border-radius: 8px;
+    gap: 15px;
+    background-color: var(--t);
+    font-weight: bold;
+    transition: .1s linear;
+    cursor: pointer;
+    align-items: center;
+}
+
+.readmore_btn button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 12px;
+}
+
+.readmore_btn svg {
+    color: white;
+    font-size: 12px;
+}
+
+.readmore_btn:hover {
+    gap: 25px;
+}
+
+.landc {
+    font-size: 12px;
+    margin-right: 10px;
+}

@@ -11,11 +11,11 @@ const ProfileNavbar = () => {
     const pathName = usePathname()
     return (
         <div className={styles.container}>
-            <Link className={pathName === "/profile/blogs" ? styles.active : undefined} href="/profile/blogs">Blogs</Link>
+            <Link className={pathName === "/myprofile/blogs" ? styles.active : undefined} href="/myprofile/blogs">Blogs</Link>
             <AddBlog>
                 <AddBlogBtnProfile/>
             </AddBlog>
-            <Link className={pathName === "/profile/saved" ? styles.active : undefined} href="/profile/saved">Saved</Link>
+            <Link className={pathName === "/myprofile/saved" ? styles.active : undefined} href="/myprofile/saved">Saved</Link>
         </div>
     )
 }

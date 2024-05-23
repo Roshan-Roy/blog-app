@@ -9,18 +9,19 @@ import Image from 'next/image'
 import ProfileNavbar from './profilenavbar/ProfileNavbar'
 
 const Profile = async ({ userId }: { userId: string }) => {
-  const [user, noOfBLogs] = await Promise.all([
-    prisma.user.findUnique({
-      where: {
-        id: userId
+  const user = await prisma.user.findUnique({
+    where: {
+      id: userId
+    },
+    include: {
+      blogs: {
+        include: {
+          likes: true
+        }
       }
-    }),
-    prisma.blog.count({
-      where: {
-        userId
-      }
-    })
-  ])
+    }
+  })
+  console.log(user)
   return (
     <>
       <div className={styles.wrapper}>
@@ -41,8 +42,8 @@ const Profile = async ({ userId }: { userId: string }) => {
           </div>
           <div className={styles.details_two}>
             <div className={styles.countboard_container}>
-              <CountBoard name="Blogs" count={noOfBLogs} />
-              <CountBoard name="Likes" count={0} />
+              <CountBoard name="Blogs" count={user?.blogs.length as number} />
+              <CountBoard name="Likes" count={user?.blogs.reduce((acc,cur) => cur.likes.length + acc,0) as number} />
             </div>
             <EditProfile
               name={user?.name}

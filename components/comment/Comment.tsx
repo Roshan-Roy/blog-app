@@ -29,9 +29,9 @@ const Comment = async ({
       <div className={styles.profile_container}>
         <div className={styles.ni_container}>
           <div className={styles.image_container}>
-            <Link href="/"><Image src={`/profile/${user?.image}`} alt="profile image" fill={true} /></Link>
+            <Link href={`/profile/${user?.id}`}><Image src={`/profile/${user?.image}`} alt="profile image" fill={true} /></Link>
           </div>
-          <p><Link href="/">{user?.name}</Link></p>
+          <p><Link href={`/profile/${user?.id}`}>{user?.name}</Link></p>
         </div>
         {deleteBtn && <DeleteBtn commentId={id}/>}
       </div>
