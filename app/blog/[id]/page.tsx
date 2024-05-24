@@ -66,7 +66,7 @@ const Blog = async ({ params }: {
           <AddComment userId={session?.user.id} blogId={blog.id} />
           {blog.comments.length === 0 ? <NoComments /> : <div className={styles.comments_container}>
             {blog.comments.filter(e => session?.user.id === e.userId).sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime()).map(e => <Suspense key={e.id} fallback={<CommentSkeleton />}><Comment {...e} deleteBtn={true} /></Suspense>)}
-            {blog.comments.filter(e => session?.user.id !== e.userId).sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime()).map(e => <Suspense key={e.id} fallback={<CommentSkeleton />}><Comment {...e} deleteBtn={false} /></Suspense>)}
+            {blog.comments.filter(e => session?.user.id !== e.userId).sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime()).map(e => <Suspense key={e.id} fallback={<CommentSkeleton />}><Comment {...e} deleteBtn={false || blog.userId === session?.user.id} /></Suspense>)}
           </div>}
         </div>
       </div>
