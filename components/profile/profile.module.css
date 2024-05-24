@@ -43,7 +43,7 @@
     width: 350px;
     font-weight: 500;
     color: var(--lt);
-    line-height:2;
+    line-height: 2;
 }
 
 .details_two {
@@ -63,13 +63,12 @@
     gap: 20px;
 }
 
-.links a {
+.links svg {
     width: 38px;
     height: 38px;
-    display: block;
+    opacity: 0.2;
 }
 
 .links a svg {
-    width: 100%;
-    height: 100%;
+    opacity: 1;
 }

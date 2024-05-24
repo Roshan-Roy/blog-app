@@ -71,15 +71,14 @@
     justify-content: space-between;
 }
 
-.links a {
+.links svg {
     width: 42px;
     height: 42px;
-    display: block;
+    opacity: 0.2;
 }
 
 .links a svg {
-    width: 100%;
-    height: 100%;
+    opacity: 1;
 }
 
 .container_two {

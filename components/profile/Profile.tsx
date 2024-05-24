@@ -32,17 +32,17 @@ const Profile = async ({ userId }: { userId: string }) => {
             <h2>{user?.name}</h2>
             <p>{user?.bio}</p>
             <div className={styles.links}>
-              {user?.instagram && <Link href={user.instagram} target="_blank"><FaInstagram /></Link>}
-              {user?.facebook && <Link href={user.facebook} target="_blank"><FaFacebook /></Link>}
-              {user?.linkedIn && <Link href={user.linkedIn} target="_blank"><FaLinkedin /></Link>}
-              {user?.whatsapp && <Link href={`https://wa.me/${user.whatsapp}`} target="_blank"><FaWhatsapp /></Link>}
+              {user?.instagram ? <Link href={user.instagram} target="_blank"><FaInstagram /></Link> : <FaInstagram />}
+              {user?.facebook ? <Link href={user.facebook} target="_blank"><FaFacebook /></Link> : <FaFacebook />}
+              {user?.linkedIn ? <Link href={user.linkedIn} target="_blank"><FaLinkedin /></Link> : <FaLinkedin />}
+              {user?.whatsapp ? <Link href={`https://wa.me/${user.whatsapp}`} target="_blank"><FaWhatsapp /></Link> : <FaWhatsapp />}
             </div>
 
           </div>
           <div className={styles.details_two}>
             <div className={styles.countboard_container}>
               <CountBoard name="Blogs" count={user?.blogs.length as number} />
-              <CountBoard name="Likes" count={user?.blogs.reduce((acc,cur) => cur.likes.length + acc,0) as number} />
+              <CountBoard name="Likes" count={user?.blogs.reduce((acc, cur) => cur.likes.length + acc, 0) as number} />
             </div>
             <EditProfile
               name={user?.name}
