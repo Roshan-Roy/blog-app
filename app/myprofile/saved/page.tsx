@@ -25,8 +25,8 @@ const SavedPage = async () => {
   if (saved.length === 0) return (
     <div className={styles.no_blogs_container}>
       <div className={styles.no_blogs}>
-          <GoBookmarkSlash/>
-          <h2>No Saved Blogs Yet</h2>
+        <GoBookmarkSlash />
+        <h2>No Saved Blogs Yet</h2>
       </div>
     </div>
   )
@@ -34,7 +34,7 @@ const SavedPage = async () => {
   return (
     <div className={styles.container}>
       {
-        saved.map(e => {
+        saved.sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime()).map(e => {
           if (e.Blog?.image && e.Blog.User) return <BlogCardSavedCover key={e.id} noOfLikes={e.Blog.likes.length} noOfComments={e.Blog.comments.length} name={e.Blog.User.name} {...e.Blog} />
           else if (e.Blog && e.Blog.User) return <BlogCardSavedNoCover key={e.id} noOfLikes={e.Blog.likes.length} noOfComments={e.Blog.comments.length} name={e.Blog.User.name} {...e.Blog} />
         })

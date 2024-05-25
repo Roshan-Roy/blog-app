@@ -29,7 +29,7 @@ const BlogsPage = async () => {
   return (
     <div className={styles.container}>
       {
-        blogs.map(e => {
+        blogs.sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime()).map(e => {
           if (e.image) return <BlogCardProfileCover key={e.id} noOfLikes={e.likes.length} noOfComments={e.comments.length} {...e} />
           return <BlogCardProfileNoCover key={e.id} noOfLikes={e.likes.length} noOfComments={e.comments.length} {...e} />
         })

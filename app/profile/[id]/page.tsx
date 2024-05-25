@@ -70,7 +70,7 @@ const Profile = async ({ params }: {
             <div className={styles.heading}>Blogs</div>
             <div className={styles.container_two}>
               {
-                user?.blogs.map(e => {
+                user?.blogs.sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime()).map(e => {
                   if (e.image) return <BlogCardUserProfileCover key={e.id} noOfLikes={e.likes.length} noOfComments={e.comments.length} {...e} />
                   return <BlogCardUserProfileNoCover key={e.id} noOfLikes={e.likes.length} noOfComments={e.comments.length} {...e} />
                 })
