@@ -1,39 +1,38 @@
+"use client"
+
 import styles from "./comment.module.css"
-import { prisma } from "@/lib/db"
 import formatDate from "@/lib/fomatDate"
 import Image from "next/image"
 import Link from "next/link"
 import DeleteBtn from "./deletebtn/DeleteBtn"
 
-const Comment = async ({
-  id,
+const Comment = ({
   userId,
+  userName,
+  userImage,
+  commentId,
   comment,
-  createdAt,
-  deleteBtn
+  deleteBtn,
+  createdAt
 }: {
-  id: string;
   userId: string | null;
+  userName: string | undefined;
+  userImage: string | undefined;
+  commentId: string | undefined;
   comment: string;
+  deleteBtn: boolean;
   createdAt: Date;
-  deleteBtn: Boolean;
 }) => {
-  const user = await prisma.user.findUnique({
-    where: {
-      id: userId as string
-    }
-  })
-
   return (
     <div className={styles.container}>
       <div className={styles.profile_container}>
         <div className={styles.ni_container}>
           <div className={styles.image_container}>
-            <Link href={`/profile/${user?.id}`}><Image src={`/profile/${user?.image}`} alt="profile image" fill={true} /></Link>
+            <Link href={`/profile/${userId}`}><Image src={`/profile/${userImage}`} alt="profile image" fill={true} /></Link>
           </div>
-          <p><Link href={`/profile/${user?.id}`}>{user?.name}</Link></p>
+          <p><Link href={`/profile/${userId}`}>{userName}</Link></p>
         </div>
-        {deleteBtn && <DeleteBtn commentId={id}/>}
+        {deleteBtn && <DeleteBtn commentId={commentId as string} />}
       </div>
       <p className={styles.comment}>{comment}</p>
       <div className={styles.date_container}>

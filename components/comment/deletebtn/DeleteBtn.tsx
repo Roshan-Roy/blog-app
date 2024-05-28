@@ -1,5 +1,3 @@
-"use client"
-
 import styles from "./deletebtn.module.css"
 import { AiOutlineDelete } from "react-icons/ai"
 import { deleteComment } from "@/actions/deleteComment"

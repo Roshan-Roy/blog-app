@@ -1,5 +1,3 @@
-"use client"
-
 import React from 'react'
 import { AiOutlineDelete } from 'react-icons/ai'
 import { useRef, useState } from 'react'
@@ -29,7 +27,6 @@ const DeleteBtn = ({ blogId, imagePublicId }: {
         })
         if (response.ok) {
             router.refresh()
-            handleCloseModal()
         } else {
             uptLoading(false)
             uptError(true)

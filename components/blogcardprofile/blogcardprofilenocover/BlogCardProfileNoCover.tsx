@@ -1,3 +1,5 @@
+"use client"
+
 import React from 'react'
 import styles from "./blogcardprofilenocover.module.css"
 import { FaArrowRight } from "react-icons/fa6"

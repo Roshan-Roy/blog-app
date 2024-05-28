@@ -43,6 +43,7 @@ const Loading = () => {
                     </div>
                     <div className={styles.comments_container}>
                       <CommentSkeleton/>
+                      <CommentSkeleton/>
                     </div>
                 </div>
             </div>

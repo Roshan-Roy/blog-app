@@ -1,5 +1,3 @@
-"use client"
-
 import React from 'react'
 import { AiOutlineDelete } from 'react-icons/ai'
 import { useRef, useState } from 'react'
@@ -21,7 +19,6 @@ const DeleteBtn = ({ blogId }: {
     const handleDelete = async () => {
         uptLoading(true)
         await deleteBlogAction(blogId)
-        handleCloseModal()
     }
     return (
         <>

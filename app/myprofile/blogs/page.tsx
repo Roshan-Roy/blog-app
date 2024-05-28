@@ -20,16 +20,16 @@ const BlogsPage = async () => {
   if (blogs.length === 0) return (
     <div className={styles.no_blogs_container}>
       <div className={styles.no_blogs}>
-          <BsPostcard />
-          <h2>No Blogs Yet</h2>
-          <p>Click &apos; + &apos; To Create Your First Blog </p>
+        <BsPostcard />
+        <h2>No Blogs Yet</h2>
+        <p>Click &apos; + &apos; To Create Your First Blog </p>
       </div>
     </div>
   )
   return (
     <div className={styles.container}>
       {
-        blogs.sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime()).map(e => {
+        blogs.sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime()).map((e, i) => {
           if (e.image) return <BlogCardProfileCover key={e.id} noOfLikes={e.likes.length} noOfComments={e.comments.length} {...e} />
           return <BlogCardProfileNoCover key={e.id} noOfLikes={e.likes.length} noOfComments={e.comments.length} {...e} />
         })
