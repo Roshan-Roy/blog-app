@@ -10,11 +10,13 @@ import NoComments from "./nocomments/NoComments"
 import Profile from "./profile/Profile"
 import Like from "./like/Like"
 import Save from "./save/Save"
+import { redirect } from "next/navigation"
 
 const Blog = async ({ params }: {
   params: any
 }) => {
   const session = await getServerSession(authOptions)
+  if(!session) redirect("/signin")
   const blog = await prisma.blog.findUnique({
     where: {
       id: params.id

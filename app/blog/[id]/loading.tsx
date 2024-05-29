@@ -1,6 +1,6 @@
 import styles from "./loading.module.css"
-import BlogLeftProfileSkeleton from "@/components/blogleftprofileskeleton/BlogLeftProfileSkeleton"
-import CommentSkeleton from "@/components/comment_skeleton/CommentSkeleton"
+import BlogLeftProfileSkeleton from "@/components/skeletons/blogleftprofileskeleton/BlogLeftProfileSkeleton"
+import CommentSkeleton from "@/components/skeletons/comment_skeleton/CommentSkeleton"
 
 const Loading = () => {
     return (
@@ -24,7 +24,7 @@ const Loading = () => {
                 <div className={styles.content_body}>
                     <div className={styles.category}></div>
                     <div className={styles.title}></div>
-                    <div className={styles.image}></div>           
+                    <div className={styles.image}></div>
                     <div className={styles.content}>
                         <div></div>
                         <div></div>
@@ -42,8 +42,8 @@ const Loading = () => {
                         <div></div>
                     </div>
                     <div className={styles.comments_container}>
-                      <CommentSkeleton/>
-                      <CommentSkeleton/>
+                        <CommentSkeleton />
+                        <CommentSkeleton />
                     </div>
                 </div>
             </div>

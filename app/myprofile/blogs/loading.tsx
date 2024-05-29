@@ -1,4 +1,4 @@
-import ProfileBlogSkeleton from "@/components/profileblogskeleton/ProfileBlogSkeleton"
+import ProfileBlogSkeleton from "@/components/skeletons/profileblogskeleton/ProfileBlogSkeleton"
 import styles from "./page.module.css"
 
 const Loading = () => {

@@ -1,6 +1,6 @@
-import UserProfileSkeleton from "@/components/userprofileskeleton/UserProfileSkeleton"
+import UserProfileSkeleton from "@/components/skeletons/userprofileskeleton/UserProfileSkeleton"
 import styles from "./page.module.css"
-import ProfileSavedSkeleton from "@/components/profilesavedskeleton/ProfileSavedSkeleton"
+import ProfileSavedSkeleton from "@/components/skeletons/profilesavedskeleton/ProfileSavedSkeleton"
 
 const loading = () => {
   return (

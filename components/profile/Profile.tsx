@@ -7,6 +7,7 @@ import { FaInstagram, FaFacebook, FaLinkedin, FaWhatsapp } from "react-icons/fa"
 import Link from 'next/link'
 import Image from 'next/image'
 import ProfileNavbar from './profilenavbar/ProfileNavbar'
+import SignoutBtn from './signoutbtn/SignoutBtn'
 
 const Profile = async ({ userId }: { userId: string }) => {
   const user = await prisma.user.findUnique({
@@ -44,16 +45,19 @@ const Profile = async ({ userId }: { userId: string }) => {
               <CountBoard name="Blogs" count={user?.blogs.length as number} />
               <CountBoard name="Likes" count={user?.blogs.reduce((acc, cur) => cur.likes.length + acc, 0) as number} />
             </div>
-            <EditProfile
-              name={user?.name}
-              bio={user?.bio}
-              instagram={user?.instagram}
-              facebook={user?.facebook}
-              linkedIn={user?.linkedIn}
-              whatsapp={user?.whatsapp}
-              image={user?.image}
-              userId={userId}
-            />
+            <div className={styles.btn_container}>
+              <EditProfile
+                name={user?.name}
+                bio={user?.bio}
+                instagram={user?.instagram}
+                facebook={user?.facebook}
+                linkedIn={user?.linkedIn}
+                whatsapp={user?.whatsapp}
+                image={user?.image}
+                userId={userId}
+              />
+              <SignoutBtn />
+            </div>
           </div>
         </div>
       </div>

@@ -30,7 +30,11 @@ const MyProfileSkeleton = () => {
                                 <div></div>
                             </div>
                         </div>
-                        <div className={styles.button}></div>
+
+                        <div className={styles.button_container}>
+                            <div></div>
+                            <div></div>
+                        </div>
                     </div>
                 </div>
             </div>

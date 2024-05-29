@@ -3,7 +3,7 @@ import Profile from "@/components/profile/Profile"
 import { getServerSession } from "next-auth"
 import { authOptions } from "@/lib/auth"
 import { redirect } from "next/navigation"
-import MyProfileSkeleton from "@/components/myprofileskeleton/MyProfileSkeleton"
+import MyProfileSkeleton from "@/components/skeletons/myprofileskeleton/MyProfileSkeleton"
 import Scroller from "@/components/scroller/Scroller"
 
 const layout = async ({ children }: { children: React.ReactNode }) => {

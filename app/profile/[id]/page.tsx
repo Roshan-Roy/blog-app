@@ -15,8 +15,11 @@ const Profile = async ({ params }: {
   params: any
 }) => {
   const session = await getServerSession(authOptions)
+  
+  if (!session) redirect("/signin")
+  
   if (session?.user.id === params.id) {
-       redirect("/myprofile/blogs")
+    redirect("/myprofile/blogs")
   }
   const user = await prisma.user.findUnique({
     where: {
@@ -49,10 +52,10 @@ const Profile = async ({ params }: {
               <CountBoard name="Likes" count={user?.blogs.reduce((acc, cur) => cur.likes.length + acc, 0) as number} />
             </div>
             <div className={styles.links}>
-              {user?.instagram ? <Link href={user.instagram} target="_blank"><FaInstagram /></Link> : <FaInstagram/>}
-              {user?.facebook ? <Link href={user.facebook} target="_blank"><FaFacebook /></Link> : <FaFacebook/>}
-              {user?.linkedIn ? <Link href={user.linkedIn} target="_blank"><FaLinkedin /></Link> : <FaLinkedin/>}
-              {user?.whatsapp ? <Link href={`https://wa.me/${user.whatsapp}`} target="_blank"><FaWhatsapp /></Link> : <FaWhatsapp/>}
+              {user?.instagram ? <Link href={user.instagram} target="_blank"><FaInstagram /></Link> : <FaInstagram />}
+              {user?.facebook ? <Link href={user.facebook} target="_blank"><FaFacebook /></Link> : <FaFacebook />}
+              {user?.linkedIn ? <Link href={user.linkedIn} target="_blank"><FaLinkedin /></Link> : <FaLinkedin />}
+              {user?.whatsapp ? <Link href={`https://wa.me/${user.whatsapp}`} target="_blank"><FaWhatsapp /></Link> : <FaWhatsapp />}
             </div>
           </div>
         </div>
