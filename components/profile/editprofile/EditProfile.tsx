@@ -60,7 +60,7 @@ const EditProfile = ({ name, bio, instagram, facebook, linkedIn, whatsapp, image
         e.preventDefault()
         uptLoading(true)
         await editProfile(data, userId)
-        update({ name: data.name })
+        update({ name: data.name, image: data.image })
         uptLoading(false)
         handleCloseBtnClick()
     }

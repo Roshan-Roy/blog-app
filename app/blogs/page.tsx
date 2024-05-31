@@ -4,11 +4,10 @@ import { authOptions } from "@/lib/auth"
 
 const Blogs = async () => {
   const session = await getServerSession(authOptions)
+  console.log(session)
   if (!session) redirect("/signin")
   return (
-    <>
-      <div>All blogs</div>
-    </>
+    <p>{JSON.stringify(session)}</p>
   )
 }
 
