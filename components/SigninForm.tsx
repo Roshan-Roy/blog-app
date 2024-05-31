@@ -60,7 +60,7 @@ const SigninForm = () => {
                 })
                 uptPending(false)
             } else {
-                router.push("/dashboard")
+                router.push("/blogs")
                 router.refresh()
             }
         }
