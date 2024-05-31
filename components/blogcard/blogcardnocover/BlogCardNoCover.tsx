@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from "./blogcardsavednocover.module.css"
+import styles from "./blogcardnocover.module.css"
 import { FaArrowRight } from "react-icons/fa6"
 import formatDate from '@/lib/fomatDate'
 import Link from 'next/link'
@@ -7,7 +7,7 @@ import Link from 'next/link'
 type BlogType = {
     id: string;
     title: string;
-    name:string;
+    name: string;
     content: string;
     category: string;
     createdAt: Date;
@@ -16,7 +16,7 @@ type BlogType = {
     noOfLikes: number | undefined;
 }
 
-const BlogCardSavedNoCover = ({
+const BlogCardNoCover = ({
     id,
     title,
     name,
@@ -40,7 +40,7 @@ const BlogCardSavedNoCover = ({
             <h2>{title}</h2>
             <p className={styles.description}>{content}</p>
             <div className={styles.footer}>
-                <Link className={styles.readmore_btn} href={`/blog/${id}`}>
+                <Link className={styles.readmore_btn} href={`/blogs/${id}`}>
                     <button>Read Post</button>
                     <FaArrowRight />
                 </Link>
@@ -52,4 +52,4 @@ const BlogCardSavedNoCover = ({
     )
 }
 
-export default BlogCardSavedNoCover
+export default BlogCardNoCover

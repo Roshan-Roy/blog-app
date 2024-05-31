@@ -13,8 +13,8 @@ const Navbar = () => {
                 name: "Home",
                 route: ["/"]
             }, {
-                name: "Dashboard",
-                route: ["/dashboard"]
+                name: "Blogs",
+                route: ["/blogs"]
             }, {
                 name: "Profile",
                 route: ["/myprofile/blogs", "/myprofile/saved"]

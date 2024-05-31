@@ -26,6 +26,7 @@
     flex-basis: 170px;
     border-radius: 10px;
     overflow: hidden;
+    border: 1px solid #ddd;
 }
 
 .category {
@@ -67,7 +68,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     font-weight: 500;
-}   
+}
 
 .footer {
     display: flex;

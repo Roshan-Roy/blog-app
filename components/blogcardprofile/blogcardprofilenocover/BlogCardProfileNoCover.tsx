@@ -45,7 +45,7 @@ const BlogCardProfileNoCover = ({
             <h2>{title}</h2>
             <p className={styles.description}>{content}</p>
             <div className={styles.footer}>
-                <Link className={styles.readmore_btn} href={`/blog/${id}`}>
+                <Link className={styles.readmore_btn} href={`/blogs/${id}`}>
                     <button>Read Post</button>
                     <FaArrowRight />
                 </Link>

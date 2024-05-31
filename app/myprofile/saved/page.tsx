@@ -2,8 +2,8 @@ import { prisma } from "@/lib/db"
 import { getServerSession } from "next-auth"
 import { authOptions } from "@/lib/auth"
 import styles from "./page.module.css"
-import BlogCardSavedCover from "@/components/blogcardsaved/blogcardsavedcover/BlogCardSavedCover"
-import BlogCardSavedNoCover from "@/components/blogcardsaved/blogcardsavednocover/BlogCardSavedNoCover"
+import BlogCardCover from "@/components/blogcard/blogcardcover/BlogCardCover"
+import BlogCardNoCover from "@/components/blogcard/blogcardnocover/BlogCardNoCover"
 import { GoBookmarkSlash } from "react-icons/go"
 
 const SavedPage = async () => {
@@ -35,8 +35,8 @@ const SavedPage = async () => {
     <div className={styles.container}>
       {
         saved.sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime()).map(e => {
-          if (e.Blog?.image && e.Blog.User) return <BlogCardSavedCover key={e.id} noOfLikes={e.Blog.likes.length} noOfComments={e.Blog.comments.length} name={e.Blog.User.name} {...e.Blog} />
-          else if (e.Blog && e.Blog.User) return <BlogCardSavedNoCover key={e.id} noOfLikes={e.Blog.likes.length} noOfComments={e.Blog.comments.length} name={e.Blog.User.name} {...e.Blog} />
+          if (e.Blog?.image && e.Blog.User) return <BlogCardCover key={e.id} noOfLikes={e.Blog.likes.length} noOfComments={e.Blog.comments.length} name={e.Blog.User.name} {...e.Blog} />
+          else if (e.Blog && e.Blog.User) return <BlogCardNoCover key={e.id} noOfLikes={e.Blog.likes.length} noOfComments={e.Blog.comments.length} name={e.Blog.User.name} {...e.Blog} />
         })
       }
     </div>
