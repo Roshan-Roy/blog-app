@@ -42,7 +42,6 @@ export const authOptions: NextAuthOptions = {
                 if (session.image)
                     token.picture = session.image
             }
-            console.log(token)
             if (user) {
                 return {
                     ...token,
