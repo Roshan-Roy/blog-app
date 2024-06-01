@@ -9,6 +9,11 @@ import { GoBookmarkSlash } from "react-icons/go"
 const SavedPage = async () => {
   const session = await getServerSession(authOptions)
   const saved = await prisma.save.findMany({
+    orderBy: [
+      {
+        createdAt: "desc"
+      }
+    ],
     where: {
       userId: session?.user.id
     },
@@ -34,7 +39,7 @@ const SavedPage = async () => {
   return (
     <div className={styles.container}>
       {
-        saved.sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime()).map(e => {
+        saved.map(e => {
           if (e.Blog?.image && e.Blog.User) return <BlogCardCover key={e.id} noOfLikes={e.Blog.likes.length} noOfComments={e.Blog.comments.length} name={e.Blog.User.name} {...e.Blog} />
           else if (e.Blog && e.Blog.User) return <BlogCardNoCover key={e.id} noOfLikes={e.Blog.likes.length} noOfComments={e.Blog.comments.length} name={e.Blog.User.name} {...e.Blog} />
         })

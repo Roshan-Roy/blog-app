@@ -15,9 +15,9 @@ const Profile = async ({ params }: {
   params: any
 }) => {
   const session = await getServerSession(authOptions)
-  
+
   if (!session) redirect("/signin")
-  
+
   if (session?.user.id === params.id) {
     redirect("/myprofile/blogs")
   }
@@ -27,6 +27,11 @@ const Profile = async ({ params }: {
     },
     include: {
       blogs: {
+        orderBy: [
+          {
+            createdAt: "desc"
+          }
+        ],
         include: {
           comments: true,
           likes: true
@@ -73,7 +78,7 @@ const Profile = async ({ params }: {
             <div className={styles.heading}>Blogs</div>
             <div className={styles.container_two}>
               {
-                user?.blogs.sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime()).map(e => {
+                user?.blogs.map(e => {
                   if (e.image) return <BlogCardUserProfileCover key={e.id} noOfLikes={e.likes.length} noOfComments={e.comments.length} {...e} />
                   return <BlogCardUserProfileNoCover key={e.id} noOfLikes={e.likes.length} noOfComments={e.comments.length} {...e} />
                 })

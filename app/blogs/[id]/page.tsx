@@ -16,13 +16,18 @@ const Blog = async ({ params }: {
   params: any
 }) => {
   const session = await getServerSession(authOptions)
-  if(!session) redirect("/signin")
+  if (!session) redirect("/signin")
   const blog = await prisma.blog.findUnique({
     where: {
       id: params.id
     },
     include: {
       comments: {
+        orderBy: [
+          {
+            createdAt: "desc"
+          }
+        ],
         include: {
           User: {
             select: {
@@ -80,7 +85,7 @@ const Blog = async ({ params }: {
         <div className={styles.comment_body}>
           <AddComment userId={session?.user.id} blogId={blog.id} />
           {blog.comments.length === 0 ? <NoComments /> : <div className={styles.comments_container}>
-            {blog.comments.filter(e => session?.user.id === e.userId).sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime()).map(e => <Comment
+            {blog.comments.filter(e => session?.user.id === e.userId).map(e => <Comment
               key={e.id}
               deleteBtn={true}
               userId={e.userId}
@@ -90,7 +95,7 @@ const Blog = async ({ params }: {
               comment={e.comment}
               createdAt={e.createdAt}
             />)}
-            {blog.comments.filter(e => session?.user.id !== e.userId).sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime()).map(e => <Comment key={e.id}
+            {blog.comments.filter(e => session?.user.id !== e.userId).map(e => <Comment key={e.id}
               deleteBtn={false}
               userId={e.userId}
               userName={e.User?.name}

@@ -9,6 +9,11 @@ import { BsPostcard } from "react-icons/bs"
 const BlogsPage = async () => {
   const session = await getServerSession(authOptions)
   const blogs = await prisma.blog.findMany({
+    orderBy: [
+      {
+        createdAt: "desc"
+      }
+    ],
     where: {
       userId: session?.user.id
     },
@@ -29,7 +34,7 @@ const BlogsPage = async () => {
   return (
     <div className={styles.container}>
       {
-        blogs.sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime()).map((e, i) => {
+        blogs.map((e, i) => {
           if (e.image) return <BlogCardProfileCover key={e.id} noOfLikes={e.likes.length} noOfComments={e.comments.length} {...e} />
           return <BlogCardProfileNoCover key={e.id} noOfLikes={e.likes.length} noOfComments={e.comments.length} {...e} />
         })
